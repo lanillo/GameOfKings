@@ -1,5 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/l_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0099cc"
@@ -8,53 +10,91 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout
+
+    <ImageView
+        android:id="@+id/l_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:background="@string/Background"
+        android:contentDescription="@string/Background"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/background" />
+
+    <RelativeLayout
+        android:id="@+id/l_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/Buttons">
 
         <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:id="@+id/l_toplayer"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_above="@+id/l_bottomlayer"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="false"
+            android:contentDescription="@string/NewGame"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/yes"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="112dp"
-                android:layout_weight="1"
-                android:background="@mipmap/ic_launcher"
-                android:text="@string/yes" />
-
-            <Button
-                android:id="@+id/no"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
+            <ImageButton
+                android:id="@+id/l_newgame"
+                android:layout_width="225dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@mipmap/ic_launcher"
-                android:text="@string/no" />
+                android:background="@string/Background"
+                android:contentDescription="@string/NewGame"
+                app:srcCompat="@drawable/newgame" />
+
+            <ImageButton
+                android:id="@+id/l_loadgame"
+                android:layout_width="225dp"
+                android:layout_height="match_parent"
+                android:background="@string/Background"
+                android:contentDescription="@string/LoadGame"
+                app:srcCompat="@drawable/loadgame" />
 
         </LinearLayout>
-    </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/l_bottomlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/Help"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/l_help"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="19dp"
+                android:layout_marginStart="19dp"
+                android:layout_weight="1"
+                android:background="@string/Background"
+                android:contentDescription="@string/Help"
+                app:srcCompat="@drawable/help" />
+
+            <ImageButton
+                android:id="@+id/l_credits"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:background="@string/Background"
+                android:contentDescription="@string/Credits"
+                app:srcCompat="@drawable/credits" />
+
+            <ImageButton
+                android:id="@+id/l_quit"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:background="@string/Background"
+                android:contentDescription="@string/Quit"
+                app:srcCompat="@drawable/quit" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>
