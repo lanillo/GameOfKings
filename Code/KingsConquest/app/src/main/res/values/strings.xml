@@ -13,7 +13,7 @@
     <string name="Quit">Quit</string>
 
     <string name="Background">Background</string>
-    <string name="Buttons">Buttons</string>
+    <string name="Buttons" translatable="false">Buttons</string>
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">VINCENT \n est-ce que \ntu nous delaisses ?</string>
