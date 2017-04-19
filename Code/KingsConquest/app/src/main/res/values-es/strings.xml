@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">King\'s Conquest</string>
+    <string name="Credits">Créditos</string>
+    <string name="Help">Ayuda</string>
+    <string name="LoadGame">Cargar partida</string>
+    <string name="NewGame">Nueva partida</string>
+    <string name="Quit">Quitar</string>
+</resources>
