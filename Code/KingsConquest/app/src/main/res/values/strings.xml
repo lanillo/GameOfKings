@@ -7,4 +7,8 @@
     <string name="Help">Help</string>
     <string name="Credits">Credits</string>
     <string name="Quit">Quit</string>
+
+    !-- Help Menu Objects --!
+    <string name="Help_Help" translatable="false">Help</string>
+    <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your kingdom the most powerful of the land.</string>
 </resources>

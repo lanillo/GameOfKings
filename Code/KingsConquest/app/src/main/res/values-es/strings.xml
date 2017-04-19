@@ -6,4 +6,5 @@
     <string name="LoadGame">Cargar partida</string>
     <string name="NewGame">Nueva partida</string>
     <string name="Quit">Quitar</string>
+    <string name="HelpText">King\'s Conquest es un juego sobre la conquista de otros pueblos para hacer de su reino el más poderoso de la tierra.</string>
 </resources>

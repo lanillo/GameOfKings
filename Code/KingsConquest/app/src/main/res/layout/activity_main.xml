@@ -9,7 +9,7 @@
     tools:context="com.gok.luisanillo.kingsconquest.MainActivity">
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/newgame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -18,13 +18,14 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/NewGame"
+        android:onClick="newGame"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/newgame" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/loadgame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -34,14 +35,15 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/LoadGame"
+        android:onClick="loadGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintTop_toBottomOf="@+id/newgame"
         app:srcCompat="@drawable/loadgame" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/help"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -50,6 +52,7 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/Help"
+        android:onClick="help"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -57,7 +60,7 @@
         app:srcCompat="@drawable/help" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/credits"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
@@ -66,6 +69,7 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/Credits"
+        android:onClick="credits"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -74,7 +78,7 @@
         tools:ignore="RtlHardcoded" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/quit"
         android:layout_width="107dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -83,6 +87,7 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/Quit"
+        android:onClick="quit"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

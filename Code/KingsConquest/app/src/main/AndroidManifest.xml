@@ -10,12 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_circle"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        !-- MainActivity - Contains the menu --!
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        !-- HelpMenuActivity - Contains the help --!
+        <activity
+            android:name=".HelpMenu"
+            android:parentActivityName=".MainActivity">
+
         </activity>
     </application>
 

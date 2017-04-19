@@ -6,4 +6,5 @@
     <string name="LoadGame">Load Game</string>
     <string name="NewGame">New Game</string>
     <string name="Quit">Quit</string>
+    <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your kingdom the most powerful of the land.</string>
 </resources>

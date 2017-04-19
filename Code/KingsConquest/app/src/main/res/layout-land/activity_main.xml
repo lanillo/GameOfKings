@@ -9,7 +9,7 @@
     tools:context="com.gok.luisanillo.kingsconquest.MainActivity">
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/newgame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -19,16 +19,17 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/NewGame"
+        android:onClick="newGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/imageButton8"
+        app:layout_constraintRight_toLeftOf="@+id/loadgame"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.507"
         app:srcCompat="@drawable/newgame" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/loadgame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -37,6 +38,7 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/LoadGame"
+        android:onClick="loadGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +47,7 @@
         tools:ignore="RtlHardcoded" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/help"
         android:layout_width="103dp"
         android:layout_height="86dp"
         android:layout_marginBottom="230dp"
@@ -54,6 +56,7 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/Help"
+        android:onClick="help"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,7 +65,7 @@
         tools:ignore="RtlHardcoded" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/credits"
         android:layout_width="146dp"
         android:layout_height="92dp"
         android:layout_marginBottom="230dp"
@@ -72,16 +75,17 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/Credits"
+        android:onClick="credits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintLeft_toRightOf="@+id/imageButton9"
-        app:layout_constraintRight_toLeftOf="@+id/imageButton11"
+        app:layout_constraintLeft_toRightOf="@+id/help"
+        app:layout_constraintRight_toLeftOf="@+id/quit"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/credits" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/quit"
         android:layout_width="118dp"
         android:layout_height="88dp"
         android:layout_marginBottom="229dp"
@@ -90,12 +94,13 @@
         android:layout_weight="1"
         android:background="#0000"
         android:contentDescription="@string/Quit"
+        android:onClick="quit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/quit"
-        tools:layout_editor_absoluteX="458dp"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        tools:layout_editor_absoluteX="458dp" />
 
 </android.support.constraint.ConstraintLayout>
