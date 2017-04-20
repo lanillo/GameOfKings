@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">King\'s Conquest</string>
+    <string name="Credits">Credits</string>
+    <string name="Help">Help</string>
+    <string name="LoadGame">Load Game</string>
+    <string name="NewGame">New Game</string>
+    <string name="Quit">Quit</string>
+    <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your kingdom the most powerful of the land.</string>
+    <string name="Credits_Thanks">Thanks baymax for his help. Also, thanks bilo for his drawings, they are perfect !</string>
+</resources>

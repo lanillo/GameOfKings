@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">King\'s Conquest</string>
+    <string name="Credits">Créditos</string>
+    <string name="Help">Ayuda</string>
+    <string name="LoadGame">Cargar partida</string>
+    <string name="NewGame">Nueva partida</string>
+    <string name="Quit">Quitar</string>
+    <string name="HelpText">King\'s Conquest es un juego sobre la conquista de otros pueblos para hacer de su reino el más poderoso de la tierra.</string>
+    <string name="Credits_Thanks">Gracias baymax por su ayuda. También, gracias bilo por sus dibujos, son perfectos!</string>
+</resources>

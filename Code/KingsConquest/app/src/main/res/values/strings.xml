@@ -1,11 +1,21 @@
 <resources>
-    <!--Apps own name-->
     <string name="app_name">King\'s Conquest</string>
 
-    <!--Button's text-->
-    <string name="yes">Oui</string>
-    <string name="no">Non</string>
+    !-- Main Menu Buttons --!
+    <string name="NewGame">New Game</string>
+    <string name="LoadGame">Load Game</string>
+    <string name="Help">Help</string>
+    <string name="Credits">Credits</string>
+    <string name="Quit">Quit</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">VINCENT \n est-ce que \ntu nous delaisses ?</string>
+    !-- Help Menu Objects --!
+    <string name="Help_Help" translatable="false">Help</string>
+    <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your
+                            kingdom the most powerful of the land.</string>
+
+    !-- Credits Menu Objects --!
+    <string name="Credits_Thanks">Thanks baymax for his help. Also, thanks bilo for his drawings, they are perfect !</string>
+    <string name="Credits_Credits" translatable="false">Credits</string>
+    <string name="Vincent" translatable="false">Vincent</string>
+
 </resources>

@@ -4,24 +4,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/main_icon"
+        android:icon="@mipmap/ic_launcher"
         android:isGame="true"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/main_icon_round"
-        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_circle"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme">
+        !-- MainActivity - Contains the menu --!
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        !-- HelpMenuActivity - Contains the help --!
+        <activity
+            android:name=".HelpMenu"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".CreditsMenu"></activity>
     </application>
 
 </manifest>
