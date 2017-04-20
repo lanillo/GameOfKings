@@ -1,8 +1,12 @@
 package com.gok.luisanillo.kingsconquest;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -34,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
     public void help(View view) {
         // Show help menu
         Intent intent = new Intent(this, HelpMenu.class);
-        EditText editText = (EditText) findViewById(R.id.helptext);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
 
     }
@@ -44,12 +45,26 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the @string/credits Button */
     public void credits(View view) {
         // Show credits
-
+        Intent intent = new Intent(this, CreditsMenu.class);
+        startActivity(intent);
     }
 
     /** Called when the user taps the @string/quit Button */
     public void quit(View view) {
         // Quit the application
+        new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Do you really want to exit?")
+                .setNegativeButton("No",null)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Quit the application
+                        System.exit(0);
+                        //Log.i("DEBUG_TAG", "User pressed yes.");
+                    }
+
+                }).create().show();
 
     }
 }

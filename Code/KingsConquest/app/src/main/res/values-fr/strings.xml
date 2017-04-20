@@ -7,4 +7,5 @@
     <string name="NewGame">Nouvelle partie</string>
     <string name="Quit">Quitter</string>
     <string name="HelpText">King\'s Conquest est un jeu sur la conquête d\'autres villages pour rendre votre royaume le plus puissant du continent.</string>
+    <string name="Credits_Thanks">Merci Baymax pour son aide. De plus, merci beaucoup pour ses dessins, ils sont parfaits!</string>
 </resources>

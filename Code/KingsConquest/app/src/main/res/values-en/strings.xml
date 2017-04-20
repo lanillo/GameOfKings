@@ -7,4 +7,5 @@
     <string name="NewGame">New Game</string>
     <string name="Quit">Quit</string>
     <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your kingdom the most powerful of the land.</string>
+    <string name="Credits_Thanks">Thanks baymax for his help. Also, thanks bilo for his drawings, they are perfect !</string>
 </resources>
