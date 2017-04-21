@@ -27,7 +27,8 @@
             android:name=".MainGameActivty"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_main_game_activty"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
+        <activity android:name=".CharacterCreationActivity"></activity>
     </application>
 
 </manifest>

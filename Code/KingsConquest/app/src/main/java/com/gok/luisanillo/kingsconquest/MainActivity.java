@@ -24,20 +24,27 @@ public class MainActivity extends AppCompatActivity {
      * Function : Start a new game */
     public void newGame(View view) {
 
+
+
         // Dialog to ask for hero's name
         new AlertDialog.Builder(this)
-                .setTitle("Exit")
-                .setMessage("Do you really want to exit?")
+                .setTitle("Start")
+                .setMessage("Do you really want to start a new game?")
                 .setNegativeButton("No",null)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Quit the application
-                        System.exit(0);
-                        //Log.i("DEBUG_TAG", "User pressed yes.");
+                        boolean isGameStarted = false;
+                        // Start CharacterCreation Activity
+                        isGameStarted = true;
+
+                        //Intent intent = new Intent(this, CharacterCreationActivity.class);
+                        //startActivity(intent);
                     }
 
                 }).create().show();
+
+        if()
     }
 
     /** Called when the user taps the @string/loadGame Button
