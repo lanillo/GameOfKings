@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
      *  Function : Quit the application */
     public void quit(View view) {
 
-
         // Create a dialog for the option to quit
         new AlertDialog.Builder(this)
                 .setTitle("Exit")
