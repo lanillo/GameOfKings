@@ -1,6 +1,8 @@
 package com.gok.luisanillo.kingsconquest;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.preference.DialogPreference;
@@ -24,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
      * Function : Start a new game */
     public void newGame(View view) {
 
-
-
         // Dialog to ask for hero's name
         new AlertDialog.Builder(this)
                 .setTitle("Start")
@@ -34,17 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        boolean isGameStarted = false;
-                        // Start CharacterCreation Activity
-                        isGameStarted = true;
-
-                        //Intent intent = new Intent(this, CharacterCreationActivity.class);
-                        //startActivity(intent);
+                        startActivity(new Intent(MainActivity.this ,CharacterCreationActivity.class));
                     }
 
                 }).create().show();
 
-        if()
     }
 
     /** Called when the user taps the @string/loadGame Button
@@ -89,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         //Quit the application
                         System.exit(0);
+
                         //Log.i("DEBUG_TAG", "User pressed yes.");
                     }
 
