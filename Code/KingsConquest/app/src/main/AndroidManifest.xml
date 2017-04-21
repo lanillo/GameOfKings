@@ -21,8 +21,13 @@
         !-- HelpMenuActivity - Contains the help --!
         <activity
             android:name=".HelpMenu"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".CreditsMenu"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".CreditsMenu" />
+        <activity
+            android:name=".MainGameActivty"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_main_game_activty"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"></activity>
     </application>
 
 </manifest>

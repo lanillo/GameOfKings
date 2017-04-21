@@ -20,36 +20,59 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /** Called when the user taps the @string/NewGame Button */
+    /** Called when the user taps the @string/NewGame Button
+     * Function : Start a new game */
     public void newGame(View view) {
-        // Start a new game
 
+        // Dialog to ask for hero's name
+        new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Do you really want to exit?")
+                .setNegativeButton("No",null)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Quit the application
+                        System.exit(0);
+                        //Log.i("DEBUG_TAG", "User pressed yes.");
+                    }
+
+                }).create().show();
     }
 
-    /** Called when the user taps the @string/loadGame Button */
+    /** Called when the user taps the @string/loadGame Button
+     * Function : Load a previous game */
     public void loadGame(View view) {
-        // Load a previous game
+
+        // To be implemented...
 
     }
 
-    /** Called when the user taps the @string/help Button */
+    /** Called when the user taps the @string/help Button
+     * Function : Show help menu */
     public void help(View view) {
-        // Show help menu
+
+        // Open activity that shows the help activity
         Intent intent = new Intent(this, HelpMenu.class);
         startActivity(intent);
 
     }
 
-    /** Called when the user taps the @string/credits Button */
+    /** Called when the user taps the @string/credits Button
+     * Function : Show credits */
     public void credits(View view) {
-        // Show credits
+
+        // Open activity that shows the credits activity
         Intent intent = new Intent(this, CreditsMenu.class);
         startActivity(intent);
     }
 
-    /** Called when the user taps the @string/quit Button */
+    /** Called when the user taps the @string/quit Button
+     *  Function : Quit the application */
     public void quit(View view) {
-        // Quit the application
+
+
+        // Create a dialog for the option to quit
         new AlertDialog.Builder(this)
                 .setTitle("Exit")
                 .setMessage("Do you really want to exit?")
