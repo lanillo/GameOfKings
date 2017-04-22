@@ -1,12 +1,14 @@
 package com.gok.luisanillo.kingsconquest;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 public class CharacterCreationActivity extends AppCompatActivity {
 
@@ -37,7 +39,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Quit the CharacterCreationActivity
+                        //Quit the CharacterCreationActivity and go back to MainActivity
                         finish();
                     }
 
@@ -45,6 +47,11 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     }
 
+    public void isHeroSelected(View view) {
 
+
+        Log.i("DEBUG_TAG", "User pressed on the hero.");
+
+    }
 
 }

@@ -12,4 +12,5 @@
     <string name="Warrior">Guerrier</string>
     <string name="Knight">Chevalier</string>
     <string name="Archer">Archer</string>
+    <string name="InputHeroName">Quel est le nom de votre héros?</string>
 </resources>

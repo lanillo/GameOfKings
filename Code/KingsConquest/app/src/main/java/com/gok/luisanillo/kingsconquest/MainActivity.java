@@ -1,16 +1,13 @@
 package com.gok.luisanillo.kingsconquest;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
                         //Quit the application
                         System.exit(0);
 
+                        //Exemple de Log.i
                         //Log.i("DEBUG_TAG", "User pressed yes.");
+
                     }
 
                 }).create().show();

@@ -2,12 +2,12 @@ package com.gok.luisanillo.kingsconquest;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -23,7 +23,7 @@ public class CustomSwipeAdapter extends PagerAdapter {
     private int[] image_ressources = {R.drawable.warrior, R.drawable.archer, R.drawable.knight};
     private int[] name_ressources = {R.string.Warrior, R.string.Archer, R.string.Knight};
 
-    // Contex
+    // Context
     private Context ctx;
     private LayoutInflater layoutInflater;
 
@@ -63,4 +63,5 @@ public class CustomSwipeAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout) object);
     }
+
 }

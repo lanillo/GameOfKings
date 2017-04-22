@@ -13,4 +13,5 @@
     <string name="Knight">Knight</string>
     <string name="Help_Help" translatable="false"></string>
     <string name="Archer">Archer</string>
+    <string name="InputHeroName">What is your hero\'s name ?</string>
 </resources>
