@@ -18,9 +18,13 @@
     <string name="Credits_Credits" translatable="false">Credits</string>
     <string name="Vincent" translatable="false">Vincent</string>
 
-    <string name="title_activity_main_game_activty">MainGameActivty</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_game_activty" translatable="false">MainGameActivty</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
     <string name="BackArrow" translatable="false">Back Arrow</string>
+    <string name="SelectHero">Select your hero</string>
+    <string name="Warrior">Warrior</string>
+    <string name="Archer">Archer</string>
+    <string name="Knight">Knight</string>
 
 </resources>
