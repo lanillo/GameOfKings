@@ -1,7 +1,6 @@
 package com.gok.luisanillo.kingsconquest;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
 
 public class CharacterCreationActivity extends AppCompatActivity {
 
@@ -24,6 +24,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
+
     }
 
     /** Called when back button is pressed
@@ -47,10 +48,41 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     }
 
-    public void isHeroSelected(View view) {
+    /** Called to see what hero type we have (see Constant Class)
+     *
+     * @return Hero's type position
+     */
+    public int getHeroType() {
+
+        return viewPager.getCurrentItem();
+
+    }
+
+    /** Called to see what hero name we have (see Constant Class)
+     *
+     * @return Hero's name
+     */
+    public String getHeroName() {
+
+        EditText heroName = (EditText) findViewById(R.id.hero_name);
+        return heroName.getText().toString();
+
+    }
 
 
-        Log.i("DEBUG_TAG", "User pressed on the hero.");
+    /** Called when front_arrow is clicked
+     *
+     */
+
+    public void movingForward(View view) {
+
+        int test;
+        String test1;
+        test = getHeroType();
+        test1 = getHeroName();
+
+        Log.i("DEBUG_TAG", "Hero Type:" + test);
+        Log.i("DEBUG_TAG1", "Hero Name:" + test1);
 
     }
 
