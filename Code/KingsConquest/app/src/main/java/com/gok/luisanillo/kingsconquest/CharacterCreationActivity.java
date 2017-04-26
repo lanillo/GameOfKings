@@ -7,10 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 
 
 public class CharacterCreationActivity extends AppCompatActivity {
@@ -62,8 +59,9 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
         Hero.getInstance().setName(heroName);
         Hero.getInstance().setType(heroType);
+        Hero.getInstance().setStats(Hero.getInstance().getType());
 
-        /* Select attributes */ 
+        /* Select attributes */
 
 
     }

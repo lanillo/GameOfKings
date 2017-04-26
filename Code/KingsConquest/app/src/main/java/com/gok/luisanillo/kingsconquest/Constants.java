@@ -22,6 +22,22 @@ public final class Constants {
     public static final int INITIAL_DEFENCE = 1;
     public static final int INITIAL_SPEED = 1;
 
+    // Warrior
+    public static final int INITIAL_ATTACK_W = 5;
+    public static final int INITIAL_DEFENCE_W = 3;
+    public static final int INITIAL_SPEED_W = 2;
+
+    // Archer
+    public static final int INITIAL_ATTACK_A = 3;
+    public static final int INITIAL_DEFENCE_A = 0;
+    public static final int INITIAL_SPEED_A = 7;
+
+    // Knight
+    public static final int INITIAL_ATTACK_K = 3;
+    public static final int INITIAL_DEFENCE_K = 4;
+    public static final int INITIAL_SPEED_K = 3;
+
+
     // Hero's life and xp
     public static final int INITIAL_HITPOINTS = 100;
     public static final int INITIAL_EXPERIENCE = 0;

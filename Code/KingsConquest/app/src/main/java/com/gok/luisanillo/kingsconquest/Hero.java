@@ -1,5 +1,7 @@
 package com.gok.luisanillo.kingsconquest;
 
+import android.util.Log;
+
 /**
  * Created by LuisFelipe on 2017-04-25.
  */
@@ -24,6 +26,53 @@ public class Hero {
 
         return ourInstance;
     }
+
+
+    /** Called after type is set stats when type is chosen
+     *
+     * Function: set stats when type is chosen
+     */
+
+    public void setStats(int type) {
+
+        switch(type) {
+
+            // Warrior type
+            case Constants.WARRIOR:
+                setAttack(Constants.INITIAL_ATTACK_W);
+                setDefence(Constants.INITIAL_DEFENCE_W);
+                setSpeed(Constants.INITIAL_SPEED_W);
+                break;
+
+            // Archer type
+            case Constants.ARCHER:
+                setAttack(Constants.INITIAL_ATTACK_A);
+                setDefence(Constants.INITIAL_DEFENCE_A);
+                setSpeed(Constants.INITIAL_SPEED_A);
+                break;
+
+            // Speed type
+            case Constants.KNIGHT:
+                setAttack(Constants.INITIAL_ATTACK_K);
+                setDefence(Constants.INITIAL_DEFENCE_K);
+                setSpeed(Constants.INITIAL_SPEED_K);
+                break;
+
+            case Constants.NO_TYPE:
+                // Debug message indicating the type has not yet been chosen
+                Log.i("NO_TYPE_setStats", "type is equal to -1, therefore no type chosen. ERROR");
+                break;
+
+            default:
+                //Log.i("DEBUG_TAG", "User pressed yes.");
+                Log.i("NO_TYPE_setStats", "type is equal to something weird, ERROR");
+                break;
+
+        }
+
+    }
+
+
 
 
     // Constructor
