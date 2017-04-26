@@ -1,6 +1,7 @@
 package com.gok.luisanillo.kingsconquest;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
 
 public class CharacterCreationActivity extends AppCompatActivity {
 
@@ -24,7 +24,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
-
     }
 
     /** Called when back button is pressed
@@ -48,6 +47,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
     /** Called to see what hero type we have (see Constant Class)
      *
      * @return Hero's type position
@@ -84,6 +84,12 @@ public class CharacterCreationActivity extends AppCompatActivity {
         // avec des methodes set
         //heroType = getHeroType();
         //heroName = getHeroName();
+=======
+    public void isHeroSelected(View view) {
+
+
+        Log.i("DEBUG_TAG", "User pressed on the hero.");
+>>>>>>> parent of b9acafd... Fixed onClick (#3)
 
     }
 
