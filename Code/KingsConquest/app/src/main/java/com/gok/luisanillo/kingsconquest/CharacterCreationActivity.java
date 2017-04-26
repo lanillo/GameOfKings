@@ -63,6 +63,9 @@ public class CharacterCreationActivity extends AppCompatActivity {
         Hero.getInstance().setName(heroName);
         Hero.getInstance().setType(heroType);
 
+        /* Select attributes */ 
+
+
     }
 
     /** Called to see what hero type we have (see Constant Class)
