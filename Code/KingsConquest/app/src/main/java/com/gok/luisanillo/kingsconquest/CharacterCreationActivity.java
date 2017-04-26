@@ -1,7 +1,6 @@
 package com.gok.luisanillo.kingsconquest;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
 
 public class CharacterCreationActivity extends AppCompatActivity {
 
@@ -24,6 +24,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
+
     }
 
     /** Called when back button is pressed
@@ -49,7 +50,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     /** Called to see what hero type we have (see Constant Class)
      *
-     * Function Hero's type position
+     * @return Hero's type position
      */
     public int getHeroType() {
 
@@ -59,7 +60,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     /** Called to see what hero name we have (see Constant Class)
      *
-     * Function Hero's name
+     * @return Hero's name
      */
     public String getHeroName() {
 
@@ -73,6 +74,15 @@ public class CharacterCreationActivity extends AppCompatActivity {
      *
      */
     public void createHero(View view) {
+
+        //Hero myHero = new Hero();
+
+        //int heroType;
+        //String heroName;
+
+        // avec des methodes set
+        //heroType = getHeroType();
+        //heroName = getHeroName();
 
     }
 

@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /** Called when the user taps the @string/quit Button
+    /** Called when the user taps b  the @string/quit Button
      *  Function : Quit the application */
     public void quit(View view) {
 
