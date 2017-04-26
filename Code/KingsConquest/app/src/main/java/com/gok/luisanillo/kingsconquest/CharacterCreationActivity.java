@@ -74,15 +74,16 @@ public class CharacterCreationActivity extends AppCompatActivity {
      *
      */
 
-    public void movingForward(View view) {
+    public void createHero(View view) {
 
-        int test;
-        String test1;
-        test = getHeroType();
-        test1 = getHeroName();
+        //Hero myHero = new Hero();
 
-        Log.i("DEBUG_TAG", "Hero Type:" + test);
-        Log.i("DEBUG_TAG1", "Hero Name:" + test1);
+        //int heroType;
+        //String heroName;
+
+        // avec des methodes set
+        //heroType = getHeroType();
+        //heroName = getHeroName();
 
     }
 
