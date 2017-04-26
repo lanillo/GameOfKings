@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 public class CharacterCreationActivity extends AppCompatActivity {
@@ -48,6 +51,20 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     }
 
+    /** Called when front_arrow is clicked
+     *
+     *  Function: Modifies the hero's attributes
+     */
+    public void createHero(View view) {
+
+        int heroType = getHeroType();
+        String heroName = getHeroName();
+
+        Hero.getInstance().setName(heroName);
+        Hero.getInstance().setType(heroType);
+
+    }
+
     /** Called to see what hero type we have (see Constant Class)
      *
      * @return Hero's type position
@@ -66,23 +83,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
         EditText heroName = (EditText) findViewById(R.id.hero_name);
         return heroName.getText().toString();
-
-    }
-
-
-    /** Called when front_arrow is clicked
-     *
-     */
-    public void createHero(View view) {
-
-        //Hero myHero = new Hero();
-
-        //int heroType;
-        //String heroName;
-
-        // avec des methodes set
-        //heroType = getHeroType();
-        //heroName = getHeroName();
 
     }
 
