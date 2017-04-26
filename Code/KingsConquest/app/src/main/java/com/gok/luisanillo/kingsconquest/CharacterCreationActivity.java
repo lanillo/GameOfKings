@@ -47,10 +47,9 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     }
 
-<<<<<<< HEAD
     /** Called to see what hero type we have (see Constant Class)
      *
-     * @return Hero's type position
+     * Function Hero's type position
      */
     public int getHeroType() {
 
@@ -60,7 +59,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
     /** Called to see what hero name we have (see Constant Class)
      *
-     * @return Hero's name
+     * Function Hero's name
      */
     public String getHeroName() {
 
@@ -73,23 +72,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
     /** Called when front_arrow is clicked
      *
      */
-
     public void createHero(View view) {
-
-        //Hero myHero = new Hero();
-
-        //int heroType;
-        //String heroName;
-
-        // avec des methodes set
-        //heroType = getHeroType();
-        //heroName = getHeroName();
-=======
-    public void isHeroSelected(View view) {
-
-
-        Log.i("DEBUG_TAG", "User pressed on the hero.");
->>>>>>> parent of b9acafd... Fixed onClick (#3)
 
     }
 
