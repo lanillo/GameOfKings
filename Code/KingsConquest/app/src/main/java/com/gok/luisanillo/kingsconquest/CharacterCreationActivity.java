@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.support.v4.app.Fragment;
+
 
 
 public class CharacterCreationActivity extends AppCompatActivity {
@@ -72,9 +74,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
          *
          * Function: Lets user distribute his initial 10 attributes points
          */
-
-
-
 
     }
 
