@@ -66,6 +66,8 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     }
                 });
 
+                dialog.show();
+
             }
         });
 
