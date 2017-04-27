@@ -14,4 +14,8 @@
     <string name="Help_Help" translatable="false"></string>
     <string name="Archer">Archer</string>
     <string name="InputHeroName">What is your hero\'s name ?</string>
+    <string name="distribute_attributes">Distribute your hero\'s attribute points</string>
+    <string name="Attack">Attack</string>
+    <string name="Defence">Defence</string>
+    <string name="Speed">Speed</string>
 </resources>

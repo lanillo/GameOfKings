@@ -1,5 +1,8 @@
 package com.gok.luisanillo.kingsconquest;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 
 /**
@@ -17,25 +20,55 @@ public class Hero {
     private int speed;
 
     private int hitpoints;
+
     private int experience;
+    private int attributePoints;
+    private int level;
 
-
-    // Initialisation of the hero
-    private static final Hero ourInstance = new Hero();
-    public static Hero getInstance() {
-
-        return ourInstance;
-    }
-
+    private boolean isPlayerHero;
 
     /** Called after type is set stats when type is chosen
      *
      * Function: set stats when type is chosen
      */
 
+    // Constructor
+    public Hero() {
+
+        this.name = Constants.NAME;
+        this.type = Constants.NO_TYPE;
+        this.attack = Constants.INITIAL_ATTACK;
+        this.defence = Constants.INITIAL_DEFENCE;
+        this.speed = Constants.INITIAL_SPEED;
+        this.hitpoints = Constants.INITIAL_HITPOINTS;
+        this.experience = Constants.INITIAL_EXPERIENCE;
+        this.level = Constants.INITIAL_LEVEL;
+        this.attributePoints = Constants.ATTRIBUTES_LEVEL;
+        this.isPlayerHero = false;
+
+    }
+
+    public Hero(boolean isPlayerHero) {
+
+        this.name = Constants.NAME;
+        this.type = Constants.NO_TYPE;
+        this.attack = Constants.INITIAL_ATTACK;
+        this.defence = Constants.INITIAL_DEFENCE;
+        this.speed = Constants.INITIAL_SPEED;
+        this.hitpoints = Constants.INITIAL_HITPOINTS;
+        this.experience = Constants.INITIAL_EXPERIENCE;
+        this.level = Constants.INITIAL_LEVEL;
+        this.attributePoints = Constants.ATTRIBUTES_LEVEL;
+        this.isPlayerHero = isPlayerHero;
+
+    }
+
+    /** List of methods **/
+
+    /** Sets initials attributes of hero according to type */
     public void setStats(int type) {
 
-        switch(type) {
+        switch (type) {
 
             // Warrior type
             case Constants.WARRIOR:
@@ -70,21 +103,25 @@ public class Hero {
 
         }
 
+        // Create dialog to prompt user to select attributes
+
     }
 
+        /** This is called when the hero levels up */
+    public void levelUp(Context context) {
 
+        int currentAttributePoints = getAttributePoints();
+        int currentLevel = getLevel();
 
+        // Level up
+        setLevel(currentLevel + 1);
+        setAttributePoints(currentAttributePoints + Constants.ATTRIBUTES_LEVEL);
 
-    // Constructor
-    private Hero() {
+        // Create dialog to tell user its hero has gained a level
+        new AlertDialog.Builder(context)
+                .setTitle("Congratulations, your hero has leveled up !")
+                .setMessage(this.name + " is now level " + this.level).create().show();
 
-        this.name = Constants.NAME;
-        this.type = Constants.NO_TYPE;
-        this.attack = Constants.INITIAL_ATTACK;
-        this.defence = Constants.INITIAL_DEFENCE;
-        this.speed = Constants.INITIAL_SPEED;
-        this.hitpoints = Constants.INITIAL_HITPOINTS;
-        this.experience = Constants.INITIAL_EXPERIENCE;
 
     }
 
@@ -127,6 +164,21 @@ public class Hero {
         this.experience = Experience;
     }
 
+    public void setAttributePoints(int attributePoints) {
+
+        this.attributePoints = attributePoints;
+    }
+
+    public void setLevel(int level) {
+
+        this.level = level;
+    }
+
+    public void setPlayerHero(boolean isPlayerHero) {
+
+        this.isPlayerHero = isPlayerHero;
+    }
+
     /** List of accessers
      *
      * Function: Read each attribute of the hero */
@@ -163,6 +215,21 @@ public class Hero {
     public int getExperience() {
 
         return this.experience;
+    }
+
+    public int getAttributePoints() {
+
+        return this.attributePoints;
+    }
+
+    public int getLevel() {
+
+        return this.level;
+    }
+
+    public boolean getIsPlayerHero() {
+
+        return this.isPlayerHero;
     }
 
 

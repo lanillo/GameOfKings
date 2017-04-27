@@ -54,14 +54,26 @@ public class CharacterCreationActivity extends AppCompatActivity {
      */
     public void createHero(View view) {
 
+        boolean isPlayerHero = true;
+
+        Hero myHero = new Hero(isPlayerHero);
+        Controller.getInstance().setHero(myHero);
+
         int heroType = getHeroType();
         String heroName = getHeroName();
 
-        Hero.getInstance().setName(heroName);
-        Hero.getInstance().setType(heroType);
-        Hero.getInstance().setStats(Hero.getInstance().getType());
+        // Set hero's name, type and distribute attributes
+        Controller.getInstance().getHero().setName(heroName);
+        Controller.getInstance().getHero().setType(heroType);
+        Controller.getInstance().getHero().setStats(Controller.getInstance().getHero().getType());
 
-        /* Select attributes */
+        /** Select attributes
+         * We proceed by creating a new dialog
+         *
+         * Function: Lets user distribute his initial 10 attributes points
+         */
+
+
 
 
     }
@@ -73,7 +85,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
     public int getHeroType() {
 
         return viewPager.getCurrentItem();
-
     }
 
     /** Called to see what hero name we have (see Constant Class)
@@ -84,7 +95,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
         EditText heroName = (EditText) findViewById(R.id.hero_name);
         return heroName.getText().toString();
-
     }
 
 }

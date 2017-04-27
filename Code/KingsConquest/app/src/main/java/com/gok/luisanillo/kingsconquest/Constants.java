@@ -37,10 +37,13 @@ public final class Constants {
     public static final int INITIAL_DEFENCE_K = 4;
     public static final int INITIAL_SPEED_K = 3;
 
+    // Per level attribute
+    public static final int ATTRIBUTES_LEVEL = 5;
 
     // Hero's life and xp
     public static final int INITIAL_HITPOINTS = 100;
     public static final int INITIAL_EXPERIENCE = 0;
+    public static final int INITIAL_LEVEL = 1;
 
 
 

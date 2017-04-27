@@ -13,4 +13,8 @@
     <string name="Knight">Caballero</string>
     <string name="Archer">Arquero</string>
     <string name="InputHeroName">¿Cuál es el nombre de tu héroe?</string>
+    <string name="distribute_attributes">Distribuye los atributos de tu héroe</string>
+    <string name="Attack">Ataque</string>
+    <string name="Defence">Defensa</string>
+    <string name="Speed">Velocidad</string>
 </resources>
