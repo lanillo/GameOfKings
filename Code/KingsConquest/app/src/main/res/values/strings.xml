@@ -44,6 +44,7 @@
     <string name="Speed">Speed</string>
     <string name="CheckMark" translatable="false">CheckMark</string>
     <string name="DistributeAttributesTitle">Attributes Page</string>
+    <string name="AttributesPointsLeft" translatable="false">Number of attributes points hero still has</string>
 
 
 </resources>

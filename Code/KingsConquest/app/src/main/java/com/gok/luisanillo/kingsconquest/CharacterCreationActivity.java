@@ -85,7 +85,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
          */
 
         // If front_arrow is pressed
-        setAttributes();
+        setAttributesDialog();
 
 
     }
@@ -95,7 +95,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
      *
      * Function: Brings up the setAttributes dialog
      */
-    public void setAttributes() {
+    public void setAttributesDialog() {
 
         // Create dialog and title
         final Dialog dialog = new Dialog(context);
@@ -109,9 +109,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
         defence.setText(R.string.Defence);
         TextView speed = (TextView) dialog.findViewById(R.id.speed);
         speed.setText(R.string.Speed);
-
-        //ImageView image = (ImageView) dialog.findViewById(R.id.image);
-        //image.setImageResource(R.drawable.ic_launcher);
 
         ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
         // If checkMark is clicked, save attributes
