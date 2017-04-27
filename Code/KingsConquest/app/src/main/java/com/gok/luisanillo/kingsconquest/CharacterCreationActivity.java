@@ -1,15 +1,19 @@
 package com.gok.luisanillo.kingsconquest;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.media.Image;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.support.v4.app.Fragment;
-
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class CharacterCreationActivity extends AppCompatActivity {
@@ -18,14 +22,54 @@ public class CharacterCreationActivity extends AppCompatActivity {
     ViewPager viewPager;
     CustomSwipeAdapter adapter;
 
+    final Context context = this;
+    private ImageView view;
+
     /** Here, we instantiate the ViewPager and SwipeAdapter modules for swipping heroes */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_creation);
+
+        // Initialize pager
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
+
+        view = (ImageView) findViewById(R.id.front_arrow);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Create dialog and title
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.distribute_attributes);
+                dialog.setTitle(R.string.DistributeAttributesTitle);
+
+                // set dialog components - text, image and button
+                TextView attack = (TextView) dialog.findViewById(R.id.attack);
+                attack.setText(R.string.Attack);
+                TextView defence = (TextView) dialog.findViewById(R.id.defence);
+                defence.setText(R.string.Defence);
+                TextView speed = (TextView) dialog.findViewById(R.id.speed);
+                speed.setText(R.string.Speed);
+
+                //ImageView image = (ImageView) dialog.findViewById(R.id.image);
+                //image.setImageResource(R.drawable.ic_launcher);
+
+                ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
+                // If checkMark is clicked, save attributes
+                checkMark.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+            }
+        });
+
+
 
     }
 

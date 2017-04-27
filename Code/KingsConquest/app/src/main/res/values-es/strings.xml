@@ -17,4 +17,5 @@
     <string name="Attack">Ataque</string>
     <string name="Defence">Defensa</string>
     <string name="Speed">Velocidad</string>
+    <string name="DistributeAttributesTitle">Pagina de attributos</string>
 </resources>
