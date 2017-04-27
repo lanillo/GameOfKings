@@ -36,43 +36,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
 
-        view = (ImageView) findViewById(R.id.front_arrow);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Create dialog and title
-                final Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.distribute_attributes);
-                dialog.setTitle(R.string.DistributeAttributesTitle);
-
-                // set dialog components - text, image and button
-                TextView attack = (TextView) dialog.findViewById(R.id.attack);
-                attack.setText(R.string.Attack);
-                TextView defence = (TextView) dialog.findViewById(R.id.defence);
-                defence.setText(R.string.Defence);
-                TextView speed = (TextView) dialog.findViewById(R.id.speed);
-                speed.setText(R.string.Speed);
-
-                //ImageView image = (ImageView) dialog.findViewById(R.id.image);
-                //image.setImageResource(R.drawable.ic_launcher);
-
-                ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
-                // If checkMark is clicked, save attributes
-                checkMark.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
-
-            }
-        });
-
-
-
     }
 
     /** Called when back button is pressed
@@ -120,6 +83,47 @@ public class CharacterCreationActivity extends AppCompatActivity {
          *
          * Function: Lets user distribute his initial 10 attributes points
          */
+
+        // If front_arrow is pressed
+        setAttributes();
+
+
+    }
+
+    /** Select attributes
+     * We proceed by creating a new dialog
+     *
+     * Function: Brings up the setAttributes dialog
+     */
+    public void setAttributes() {
+
+        // Create dialog and title
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.distribute_attributes);
+        dialog.setTitle(R.string.DistributeAttributesTitle);
+
+        // set dialog components - text, image and button
+        TextView attack = (TextView) dialog.findViewById(R.id.attack);
+        attack.setText(R.string.Attack);
+        TextView defence = (TextView) dialog.findViewById(R.id.defence);
+        defence.setText(R.string.Defence);
+        TextView speed = (TextView) dialog.findViewById(R.id.speed);
+        speed.setText(R.string.Speed);
+
+        //ImageView image = (ImageView) dialog.findViewById(R.id.image);
+        //image.setImageResource(R.drawable.ic_launcher);
+
+        ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
+        // If checkMark is clicked, save attributes
+        checkMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
 
     }
 
