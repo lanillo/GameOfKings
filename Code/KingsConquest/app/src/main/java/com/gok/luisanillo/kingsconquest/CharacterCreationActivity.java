@@ -4,16 +4,16 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.media.Image;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ResourceBundle;
 
 
 public class CharacterCreationActivity extends AppCompatActivity {
@@ -85,7 +85,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
          */
 
         // If front_arrow is pressed
-        setAttributesDialog();
+        setAttributesDialog(view);
 
 
     }
@@ -95,14 +95,23 @@ public class CharacterCreationActivity extends AppCompatActivity {
      *
      * Function: Brings up the setAttributes dialog
      */
-    public void setAttributesDialog() {
+    public void setAttributesDialog(View view) {
+
+        /*// temp variables
+        int tempAttack, tempDefence, tempSpeed, tempAttributes;
+
+        tempAttack = Controller.getInstance().getHero().getAttack();
+        tempDefence = Controller.getInstance().getHero().getDefence();
+        tempSpeed = Controller.getInstance().getHero().getSpeed();
+        tempAttributes = Controller.getInstance().getHero().getAttributePoints();
+        */
 
         // Create dialog and title
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.distribute_attributes);
         dialog.setTitle(R.string.DistributeAttributesTitle);
 
-        // set dialog components - text, image and button
+        // Set attributes text
         TextView attack = (TextView) dialog.findViewById(R.id.attack);
         attack.setText(R.string.Attack);
         TextView defence = (TextView) dialog.findViewById(R.id.defence);
@@ -110,7 +119,162 @@ public class CharacterCreationActivity extends AppCompatActivity {
         TextView speed = (TextView) dialog.findViewById(R.id.speed);
         speed.setText(R.string.Speed);
 
+        // Set remaining attributes text
+        TextView attributesLeft = (TextView) dialog.findViewById(R.id.attributes_left);
+        attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
+                + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
+
+        // Set current stats text
+        TextView currentAttack = (TextView) dialog.findViewById(R.id.current_attack);
+        currentAttack.setText(String.valueOf(Controller.getInstance().getHero().getAttack()));
+        TextView currentDefence = (TextView) dialog.findViewById(R.id.current_defence);
+        currentDefence.setText(String.valueOf(Controller.getInstance().getHero().getDefence()));
+        TextView currentSpeed = (TextView) dialog.findViewById(R.id.current_speed);
+        currentSpeed.setText(String.valueOf(Controller.getInstance().getHero().getSpeed()));
+
+        // Imageviews of plus and minus marks
+        ImageView attackPlus = (ImageView) dialog.findViewById(R.id.attack_plus);
+        attackPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
+
+                } else {
+                    Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() - 1);
+                    Controller.getInstance().getHero().setAttack(Controller.getInstance().getHero().getAttack() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "att+");
+
+                    TextView currentAttack = (TextView) dialog.findViewById(R.id.current_attack);
+                    currentAttack.setText(String.valueOf(Controller.getInstance().getHero().getAttack()));
+
+                    TextView attributesLeft = (TextView) dialog.findViewById(R.id.attributes_left);
+                    attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
+                            + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
+                }
+            }
+        });
+        ImageView attackMinus = (ImageView) dialog.findViewById(R.id.attack_minus);
+        attackMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
+
+                } else {
+                    Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() + 1);
+                    Controller.getInstance().getHero().setAttack(Controller.getInstance().getHero().getAttack() - 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "att-");
+
+                    TextView currentAttack = (TextView) dialog.findViewById(R.id.current_attack);
+                    currentAttack.setText(String.valueOf(Controller.getInstance().getHero().getAttack()));
+
+                    TextView attributesLeft = (TextView) dialog.findViewById(R.id.attributes_left);
+                    attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
+                            + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
+
+                }
+            }
+        });
+        ImageView defencePlus = (ImageView) dialog.findViewById(R.id.defence_plus);
+        defencePlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
+
+                } else {
+                    Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() - 1);
+                    Controller.getInstance().getHero().setDefence(Controller.getInstance().getHero().getDefence() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "def+");
+                }
+            }
+        });
+        ImageView defenceMinus = (ImageView) dialog.findViewById(R.id.defence_minus);
+        defenceMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
+
+                } else {
+                    Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() + 1);
+                    Controller.getInstance().getHero().setDefence(Controller.getInstance().getHero().getDefence() - 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "def-");
+                }
+            }
+        });
+        ImageView speedPlus = (ImageView) dialog.findViewById(R.id.speed_plus);
+        speedPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
+
+                } else {
+                    Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() - 1);
+                    Controller.getInstance().getHero().setSpeed(Controller.getInstance().getHero().getSpeed() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "speed+");
+                }
+            }
+        });
+        ImageView speedMinus = (ImageView) dialog.findViewById(R.id.speed_minus);
+        speedMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
+
+                } else {
+                    Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() + 1);
+                    Controller.getInstance().getHero().setSpeed(Controller.getInstance().getHero().getSpeed() - 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "speed-");
+                }
+            }
+        });
+
+        // If there is no more attributes point
+        if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+            attackPlus.setVisibility(View.INVISIBLE);
+            defencePlus.setVisibility(View.INVISIBLE);
+            speedPlus.setVisibility(View.INVISIBLE);
+
+            attackMinus.setVisibility(View.VISIBLE);
+            defenceMinus.setVisibility(View.VISIBLE);
+            speedMinus.setVisibility(View.VISIBLE);
+
+        } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
+
+            attackPlus.setVisibility(View.VISIBLE);
+            defencePlus.setVisibility(View.VISIBLE);
+            speedPlus.setVisibility(View.VISIBLE);
+
+            attackMinus.setVisibility(View.INVISIBLE);
+            defenceMinus.setVisibility(View.INVISIBLE);
+            speedMinus.setVisibility(View.INVISIBLE);
+
+        } else {
+
+            attackPlus.setVisibility(View.VISIBLE);
+            defencePlus.setVisibility(View.VISIBLE);
+            speedPlus.setVisibility(View.VISIBLE);
+
+            attackMinus.setVisibility(View.VISIBLE);
+            defenceMinus.setVisibility(View.VISIBLE);
+            speedMinus.setVisibility(View.VISIBLE);
+
+        }
+
+        // ImageView of saving changes
         ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
+
         // If checkMark is clicked, save attributes
         checkMark.setOnClickListener(new View.OnClickListener() {
             @Override

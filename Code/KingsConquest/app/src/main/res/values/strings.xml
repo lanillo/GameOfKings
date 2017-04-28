@@ -45,6 +45,15 @@
     <string name="CheckMark" translatable="false">CheckMark</string>
     <string name="DistributeAttributesTitle">Attributes Page</string>
     <string name="AttributesPointsLeft" translatable="false">Number of attributes points hero still has</string>
+    <string name="speedMinus" translatable="false">speedMinus</string>
+    <string name="speedPlus" translatable="false">speedPlus</string>
+    <string name="attackPlus" translatable="false">attackPlus</string>
+    <string name="attackMinus" translatable="false">attackMinus</string>
+    <string name="defencePlus" translatable="false">defencePlus</string>
+    <string name="defenceMinus" translatable="false">defenceMinus</string>
+    <string name="CurrentAttack" translatable="false">CurrentAttack</string>
+    <string name="CurrentDefence" translatable="false">CurrentDefence</string>
+    <string name="CurrentSpeed" translatable="false">CurrentSpeed</string>
 
 
 </resources>

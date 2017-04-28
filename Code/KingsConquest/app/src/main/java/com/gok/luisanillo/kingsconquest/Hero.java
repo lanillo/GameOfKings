@@ -75,6 +75,7 @@ public class Hero {
                 setAttack(Constants.INITIAL_ATTACK_W);
                 setDefence(Constants.INITIAL_DEFENCE_W);
                 setSpeed(Constants.INITIAL_SPEED_W);
+                setAttributePoints(Constants.ATTRIBUTES_LEVEL);
                 break;
 
             // Archer type
@@ -82,6 +83,7 @@ public class Hero {
                 setAttack(Constants.INITIAL_ATTACK_A);
                 setDefence(Constants.INITIAL_DEFENCE_A);
                 setSpeed(Constants.INITIAL_SPEED_A);
+                setAttributePoints(Constants.ATTRIBUTES_LEVEL);
                 break;
 
             // Speed type
@@ -89,6 +91,7 @@ public class Hero {
                 setAttack(Constants.INITIAL_ATTACK_K);
                 setDefence(Constants.INITIAL_DEFENCE_K);
                 setSpeed(Constants.INITIAL_SPEED_K);
+                setAttributePoints(Constants.ATTRIBUTES_LEVEL);
                 break;
 
             case Constants.NO_TYPE:
@@ -121,7 +124,6 @@ public class Hero {
         new AlertDialog.Builder(context)
                 .setTitle("Congratulations, your hero has leveled up !")
                 .setMessage(this.name + " is now level " + this.level).create().show();
-
 
     }
 
