@@ -40,7 +40,7 @@
     <string name="FrontArrow" translatable="false">Front Arrow</string>
     <string name="distribute_attributes">Distribute your hero\'s attribute points</string>
     <string name="Attack">Attack</string>
-    <string name="Defence">Defence</string>
+    <string name="Defence">Defense</string>
     <string name="Speed">Speed</string>
     <string name="CheckMark" translatable="false">CheckMark</string>
     <string name="DistributeAttributesTitle">Attributes Page</string>
