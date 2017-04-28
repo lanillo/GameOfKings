@@ -203,7 +203,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     }
 
                     if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                        attackMinus.setVisibility(View.VISIBLE);
+                        attackMinus.setVisibility(View.INVISIBLE);
                     }
 
                 }
@@ -263,7 +263,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     }
 
                     if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                        attackMinus.setVisibility(View.VISIBLE);
+                        attackMinus.setVisibility(View.INVISIBLE);
                     }
 
                 }
@@ -324,7 +324,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     }
 
                     if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                        defenceMinus.setVisibility(View.VISIBLE);
+                        defenceMinus.setVisibility(View.INVISIBLE);
                     }
                 }
             }
@@ -384,7 +384,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     }
 
                     if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                        defenceMinus.setVisibility(View.VISIBLE);
+                        defenceMinus.setVisibility(View.INVISIBLE);
                     }
                 }
             }
@@ -445,7 +445,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 }
 
                 if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                    speedMinus.setVisibility(View.VISIBLE);
+                    speedMinus.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -504,7 +504,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 }
 
                 if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                    speedMinus.setVisibility(View.VISIBLE);
+                    speedMinus.setVisibility(View.INVISIBLE);
                 }
             }
         });
