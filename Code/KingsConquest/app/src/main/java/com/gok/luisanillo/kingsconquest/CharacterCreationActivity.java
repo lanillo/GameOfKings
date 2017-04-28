@@ -262,7 +262,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                         Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
                     }
 
-                    if (Controller.getInstance().getHero().getAttack() == tempAttack) {
+                    if (Controller.getInstance().getHero().getAttack() <= tempAttack) {
                         attackMinus.setVisibility(View.INVISIBLE);
                     }
 
@@ -323,7 +323,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                         Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
                     }
 
-                    if (Controller.getInstance().getHero().getAttack() == tempAttack) {
+                    if (Controller.getInstance().getHero().getDefence() <= tempDefence) {
                         defenceMinus.setVisibility(View.INVISIBLE);
                     }
                 }
@@ -383,7 +383,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                         Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
                     }
 
-                    if (Controller.getInstance().getHero().getAttack() == tempAttack) {
+                    if (Controller.getInstance().getHero().getDefence() <= tempDefence) {
                         defenceMinus.setVisibility(View.INVISIBLE);
                     }
                 }
@@ -444,7 +444,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
                 }
 
-                if (Controller.getInstance().getHero().getAttack() == tempAttack) {
+                if (Controller.getInstance().getHero().getSpeed() <= tempSpeed) {
                     speedMinus.setVisibility(View.INVISIBLE);
                 }
             }
@@ -503,7 +503,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
                 }
 
-                if (Controller.getInstance().getHero().getAttack() == tempAttack) {
+                if (Controller.getInstance().getHero().getSpeed() <= tempSpeed) {
                     speedMinus.setVisibility(View.INVISIBLE);
                 }
             }
