@@ -8,4 +8,18 @@
     <string name="Quit">Quitar</string>
     <string name="HelpText">King\'s Conquest es un juego sobre la conquista de otros pueblos para hacer de su reino el más poderoso de la tierra.</string>
     <string name="Credits_Thanks">Gracias baymax por su ayuda. También, gracias bilo por sus dibujos, son perfectos!</string>
+    <string name="SelectHero">Seleccione su héroe</string>
+    <string name="Warrior">Guerrero</string>
+    <string name="Knight">Caballero</string>
+    <string name="Archer">Arquero</string>
+    <string name="InputHeroName">¿Cuál es el nombre de tu héroe?</string>
+    <string name="distribute_attributes">Distribuye los atributos de tu héroe</string>
+    <string name="Attack">Ataque</string>
+    <string name="Defence">Defensa</string>
+    <string name="Speed">Velocidad</string>
+    <string name="DistributeAttributesTitle">Pagina de attributos</string>
+    <string name="ConfirmHeroCreation">Crear el héroe ?</string>
+    <string name="EnterAllAttributes">Por favor, distribuir todos lols atributos</string>
+    <string name="EnterNameHero">Por favor dar un nombre al héroe</string>
+    <string name="HeroCreated">Héroe creado</string>
 </resources>

@@ -9,7 +9,7 @@
     <string name="Quit">Quit</string>
 
     !-- Help Menu Objects --!
-    <string name="Help_Help" translatable="false">Help</string>
+    <string name="Help_Help">Help</string>
     <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your
                             kingdom the most powerful of the land.</string>
 
@@ -18,9 +18,46 @@
     <string name="Credits_Credits" translatable="false">Credits</string>
     <string name="Vincent" translatable="false">Vincent</string>
 
-    <string name="title_activity_main_game_activty">MainGameActivty</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    !-- Activity Names --!
+    <string name="title_activity_main_game_activty" translatable="false">MainGameActivty</string>
+
+    !-- Hero Types --!
+    <string name="Warrior">Warrior</string>
+    <string name="Archer">Archer</string>
+    <string name="Knight">Knight</string>
+
+    !-- Hero Characteristics --!
+    <string name="SelectHero">Select your hero</string>
+
+
+    !-- Hero Attributes --!
+    <string name="InputHeroName">What is your hero\'s name ?</string>
+
+
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
     <string name="BackArrow" translatable="false">Back Arrow</string>
+    <string name="FrontArrow" translatable="false">Front Arrow</string>
+    <string name="distribute_attributes">Distribute your hero\'s attribute points</string>
+    <string name="Attack">Attack</string>
+    <string name="Defence">Defense</string>
+    <string name="Speed">Speed</string>
+    <string name="CheckMark" translatable="false">CheckMark</string>
+    <string name="DistributeAttributesTitle">Attributes Page</string>
+    <string name="AttributesPointsLeft" translatable="false">Number of attributes points hero still has</string>
+    <string name="speedMinus" translatable="false">speedMinus</string>
+    <string name="speedPlus" translatable="false">speedPlus</string>
+    <string name="attackPlus" translatable="false">attackPlus</string>
+    <string name="attackMinus" translatable="false">attackMinus</string>
+    <string name="defencePlus" translatable="false">defencePlus</string>
+    <string name="defenceMinus" translatable="false">defenceMinus</string>
+    <string name="CurrentAttack" translatable="false">CurrentAttack</string>
+    <string name="CurrentDefence" translatable="false">CurrentDefence</string>
+    <string name="CurrentSpeed" translatable="false">CurrentSpeed</string>
+    <string name="ConfirmHeroCreation">Create hero ?</string>
+    <string name="EnterAllAttributes">Please distribute all attributes to your hero</string>
+    <string name="EnterNameHero">Please enter a name for your hero</string>
+    <string name="HeroCreated">HeroCreated</string>
+
 
 </resources>
