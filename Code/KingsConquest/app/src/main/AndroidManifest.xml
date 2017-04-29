@@ -15,7 +15,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,11 +30,6 @@
             android:parentActivityName=".MainActivity" />
 
         !-- MainGameActivity - Contains the help --!
-        <activity
-            android:name=".MainGameActivty"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_main_game_activty"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
 
         !-- CharacterCreationActivity - Contains the help --!
         <activity

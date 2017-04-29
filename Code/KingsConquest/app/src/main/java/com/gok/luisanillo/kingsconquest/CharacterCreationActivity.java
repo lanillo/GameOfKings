@@ -608,7 +608,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                         finish();
 
                         // Start the game !
-                        startActivity(new Intent(CharacterCreationActivity.this ,MainGameActivty.class));
+                        startActivity(new Intent(CharacterCreationActivity.this ,MainActivity.class));
 
 
                     } else {
