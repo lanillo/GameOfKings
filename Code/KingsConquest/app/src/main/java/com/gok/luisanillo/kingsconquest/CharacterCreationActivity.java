@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -599,6 +600,11 @@ public class CharacterCreationActivity extends AppCompatActivity {
                         // Hero created
                         Controller.getInstance().setHero(Controller.getInstance().getHero());
                         dialog.dismiss();
+                        finish();
+
+                        // Start the game !
+                        startActivity(new Intent(CharacterCreationActivity.this ,MainGameActivty.class));
+
 
                     } else {
 
