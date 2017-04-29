@@ -113,7 +113,6 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
         }
 
-
     }
 
     /** Select attributes
@@ -140,6 +139,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
             // Create dialog and title
             final Dialog dialog = new Dialog(context);
+
             dialog.setContentView(R.layout.distribute_attributes);
             dialog.setTitle(R.string.DistributeAttributesTitle);
 
@@ -646,4 +646,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.HeroCreated, Toast.LENGTH_SHORT).show();
     }
 
+    public int _getScreenOrientation(){
+        return getResources().getConfiguration().orientation;
+    }
 }
