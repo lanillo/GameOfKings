@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
+                        boolean isPlayerHero = true;
+                        boolean isHeroCreated = true;
+
+                        Hero myHero = new Hero(isPlayerHero, isHeroCreated);
+                        Controller.getInstance().setHero(myHero);
+
                         startActivity(new Intent(MainActivity.this ,CharacterCreationActivity.class));
                     }
 

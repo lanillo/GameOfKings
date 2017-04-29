@@ -22,4 +22,5 @@
     <string name="ConfirmHeroCreation">Create hero ?</string>
     <string name="EnterAllAttributes">Please distribute all attributes to your hero</string>
     <string name="EnterNameHero">Please enter a name for your hero</string>
+    <string name="HeroCreated">Hero Created</string>
 </resources>

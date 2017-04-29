@@ -27,6 +27,7 @@ public class Controller {
     // Parameters
     //================================================================================
     private Hero hero;
+    private Hero empty;
 
 
     //================================================================================
@@ -41,5 +42,7 @@ public class Controller {
     {
         this.hero = hero;
     }
+
+
 
 }
