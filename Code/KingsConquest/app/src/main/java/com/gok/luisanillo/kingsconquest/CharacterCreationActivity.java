@@ -56,6 +56,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         //Quit the CharacterCreationActivity and go back to MainActivity
                         Controller.getInstance().setHero(Controller.getInstance().getHero());
                         finish();
@@ -71,18 +72,21 @@ public class CharacterCreationActivity extends AppCompatActivity {
      */
     public void createHero(View view) {
 
+        //Get name and type of hero
         int heroType = getHeroType();
         String heroName = getHeroName();
         Log.i("NAME", "NAME: " + heroName + ".");
 
         if(heroName.isEmpty() || heroName.length() == 0 || heroName.equals("") || heroName == null) {
 
+            // If name is empty, show alert
             showToastName();
 
         }
 
         else {
 
+            // if hero is not created yet
             if (!isHeroAlreadyCreated) {
 
                 // Set hero's name, type and distribute attributes
@@ -98,9 +102,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
              *
              * Function: Lets user distribute his initial 10 attributes points
              */
-
-            // If front_arrow is pressed
-
+            // If front_arrow is pressed and attributes not distributed yet
             if (!isHeroAttributesDistributed) {
 
                 setAttributesDialog(view, Controller.getInstance().getHero(), isHeroAlreadyCreated);
@@ -108,12 +110,11 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
             } else {
 
+                // Toast that shows if attributes are not disributed yet
                 showToastHeroCreated();
 
             }
-
         }
-
     }
 
     /** Select attributes
@@ -125,9 +126,10 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
         if (isHeroAlreadyCreated) {
 
-            // temp initial attributes
+            // Temp initial attributes
             final int tempAttack, tempDefence, tempSpeed, tempAttributes;
 
+            // Get temp values
             tempAttack = Controller.getInstance().getHero().getAttack();
             tempDefence = Controller.getInstance().getHero().getDefence();
             tempSpeed = Controller.getInstance().getHero().getSpeed();
@@ -173,10 +175,12 @@ public class CharacterCreationActivity extends AppCompatActivity {
             final ImageView speedPlus = (ImageView) dialog.findViewById(R.id.speed_plus);
             final ImageView speedMinus = (ImageView) dialog.findViewById(R.id.speed_minus);
 
+            // Minus buttons are invisible
             attackMinus.setVisibility(View.INVISIBLE);
             defenceMinus.setVisibility(View.INVISIBLE);
             speedMinus.setVisibility(View.INVISIBLE);
 
+            // If  all attributes are distributed
             if (Controller.getInstance().getHero().getAttributePoints() <= 0 && isHeroAlreadyCreated) {
 
                 attackPlus.setVisibility(View.INVISIBLE);
@@ -185,6 +189,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
             }
 
+            // If no attribute are distributed
             if (isHeroAlreadyCreated && isHeroAlreadyCreated) {
 
                 if (Controller.getInstance().getHero().getAttributePoints() < 5 && isHeroAlreadyCreated) {
@@ -585,7 +590,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 }
             });
 
-            // ImageView of saving changes
+            // ImageView of saving changes (check mark)
             ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
 
             // If checkMark is clicked, save attributes
@@ -640,6 +645,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
         return heroName.getText().toString();
     }
 
+    /** List of toasts */
     public void showToastAttributes(){
         Toast.makeText(this, R.string.EnterAllAttributes, Toast.LENGTH_SHORT).show();
     }
@@ -652,7 +658,4 @@ public class CharacterCreationActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.HeroCreated, Toast.LENGTH_SHORT).show();
     }
 
-    public int _getScreenOrientation(){
-        return getResources().getConfiguration().orientation;
-    }
 }
