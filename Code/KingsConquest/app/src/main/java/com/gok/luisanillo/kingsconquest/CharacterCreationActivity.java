@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ResourceBundle;
 
@@ -66,27 +67,36 @@ public class CharacterCreationActivity extends AppCompatActivity {
     public void createHero(View view) {
 
         boolean isPlayerHero = true;
+        boolean isHeroCreated = true;
 
-        Hero myHero = new Hero(isPlayerHero);
+        Hero myHero = new Hero(isPlayerHero, isHeroCreated);
         Controller.getInstance().setHero(myHero);
 
         int heroType = getHeroType();
         String heroName = getHeroName();
+        Log.i("NAME", "NAME: " + heroName + ".");
 
-        // Set hero's name, type and distribute attributes
-        Controller.getInstance().getHero().setName(heroName);
-        Controller.getInstance().getHero().setType(heroType);
-        Controller.getInstance().getHero().setStats(Controller.getInstance().getHero().getType());
+        if (heroName == "") { //To debug
 
-        /** Select attributes
-         * We proceed by creating a new dialog
-         *
-         * Function: Lets user distribute his initial 10 attributes points
-         */
+            showToastName();
 
-        // If front_arrow is pressed
-        setAttributesDialog(view);
+        } else {
 
+            // Set hero's name, type and distribute attributes
+            Controller.getInstance().getHero().setName(heroName);
+            Controller.getInstance().getHero().setType(heroType);
+            Controller.getInstance().getHero().setStats(Controller.getInstance().getHero().getType());
+
+            /** Select attributes
+             * We proceed by creating a new dialog
+             *
+             * Function: Lets user distribute his initial 10 attributes points
+             */
+
+            // If front_arrow is pressed
+            setAttributesDialog(view, myHero);
+
+        }
 
     }
 
@@ -95,7 +105,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
      *
      * Function: Brings up the setAttributes dialog
      */
-    public void setAttributesDialog(View view) {
+    public void setAttributesDialog(View view, final Hero hero) {
 
         // temp initial attributes
         final int tempAttack, tempDefence, tempSpeed, tempAttributes;
@@ -106,7 +116,9 @@ public class CharacterCreationActivity extends AppCompatActivity {
         tempAttributes = Controller.getInstance().getHero().getAttributePoints();
 
         Log.i("GET_ATTRIBUTES", "" + tempAttributes);
-
+        Log.i("ATT", "" + tempAttack);
+        Log.i("DEF", "" + tempDefence);
+        Log.i("SPEED", "" + tempSpeed);
 
         // Create dialog and title
         final Dialog dialog = new Dialog(context);
@@ -114,11 +126,11 @@ public class CharacterCreationActivity extends AppCompatActivity {
         dialog.setTitle(R.string.DistributeAttributesTitle);
 
         // Set attributes text
-        TextView attack = (TextView) dialog.findViewById(R.id.attack);
+        final TextView attack = (TextView) dialog.findViewById(R.id.attack);
         attack.setText(R.string.Attack);
-        TextView defence = (TextView) dialog.findViewById(R.id.defence);
+        final TextView defence = (TextView) dialog.findViewById(R.id.defence);
         defence.setText(R.string.Defence);
-        TextView speed = (TextView) dialog.findViewById(R.id.speed);
+        final TextView speed = (TextView) dialog.findViewById(R.id.speed);
         speed.setText(R.string.Speed);
 
         // Set remaining attributes text
@@ -147,15 +159,18 @@ public class CharacterCreationActivity extends AppCompatActivity {
         speedMinus.setVisibility(View.INVISIBLE);
 
         // OnClick fonctions for plus and minus
+
+        /** Attack Plus */
         attackPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
                     Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
 
                 } else {
+
                     Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() - 1);
                     Log.i("ATTRIBUTES_DISTRIBUTION", "Attributes point after click: " + Controller.getInstance().getHero().getAttributePoints());
 
@@ -167,58 +182,59 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
                             + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
 
-                    // If there is no more attributes point
-                    if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                }
 
-                        attackPlus.setVisibility(View.INVISIBLE);
-                        defencePlus.setVisibility(View.INVISIBLE);
-                        speedPlus.setVisibility(View.INVISIBLE);
+                // If there is no more attributes point, remove plus
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
+                    attackPlus.setVisibility(View.INVISIBLE);
+                    defencePlus.setVisibility(View.INVISIBLE);
+                    speedPlus.setVisibility(View.INVISIBLE);
 
-                    } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
+                } else if (Controller.getInstance().getHero().getAttributePoints() > 0) {
 
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
+                    attackPlus.setVisibility(View.VISIBLE);
+                    defencePlus.setVisibility(View.VISIBLE);
+                    speedPlus.setVisibility(View.VISIBLE);
 
-                        attackMinus.setVisibility(View.INVISIBLE);
-                        defenceMinus.setVisibility(View.INVISIBLE);
-                        speedMinus.setVisibility(View.INVISIBLE);
+                } else {
 
-                    } else if (Controller.getInstance().getHero().getAttributePoints() < tempAttributes) {
-
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
-
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
-
-                    } else {
-                        Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
-                    }
-
-                    if (Controller.getInstance().getHero().getAttack() == tempAttack) {
-                        attackMinus.setVisibility(View.INVISIBLE);
-                    }
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING PLUS!");
 
                 }
+
+                // If attack is at the same value as the start
+                if (Controller.getInstance().getHero().getAttack() <= tempAttack) {
+
+                    attackMinus.setVisibility(View.INVISIBLE);
+
+                } else if (Controller.getInstance().getHero().getAttack() > tempAttack) {
+
+                    attackMinus.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING MINUS !");
+
+                }
+
             }
         });
+
+        /** Attack Minus */
         attackMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                if (Controller.getInstance().getHero().getAttributePoints() >= 5) {
 
                     Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
 
                 } else {
+
                     Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "Attributes point after click: " + Controller.getInstance().getHero().getAttributePoints());
+
                     Controller.getInstance().getHero().setAttack(Controller.getInstance().getHero().getAttack() - 1);
                     Log.i("ATTRIBUTES_DISTRIBUTION", "att-");
 
@@ -227,238 +243,246 @@ public class CharacterCreationActivity extends AppCompatActivity {
                     attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
                             + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
 
-                    // If there is no more attributes point
-                    if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                }
 
-                        attackPlus.setVisibility(View.INVISIBLE);
-                        defencePlus.setVisibility(View.INVISIBLE);
-                        speedPlus.setVisibility(View.INVISIBLE);
+                // If there is no more attributes point, remove plus
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
+                    attackPlus.setVisibility(View.INVISIBLE);
+                    defencePlus.setVisibility(View.INVISIBLE);
+                    speedPlus.setVisibility(View.INVISIBLE);
 
-                    } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
+                } else if (Controller.getInstance().getHero().getAttributePoints() > 0) {
 
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
+                    attackPlus.setVisibility(View.VISIBLE);
+                    defencePlus.setVisibility(View.VISIBLE);
+                    speedPlus.setVisibility(View.VISIBLE);
 
-                        attackMinus.setVisibility(View.INVISIBLE);
-                        defenceMinus.setVisibility(View.INVISIBLE);
-                        speedMinus.setVisibility(View.INVISIBLE);
+                } else {
 
-                    } else if (Controller.getInstance().getHero().getAttributePoints() < tempAttributes) {
-
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
-
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
-
-                    } else {
-                        Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
-                    }
-
-                    if (Controller.getInstance().getHero().getAttack() <= tempAttack) {
-                        attackMinus.setVisibility(View.INVISIBLE);
-                    }
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING PLUS!");
 
                 }
+
+                // If attack is at the same value as the start
+                if (Controller.getInstance().getHero().getAttack() <= tempAttack) {
+
+                    attackMinus.setVisibility(View.INVISIBLE);
+
+                } else if (Controller.getInstance().getHero().getAttack() > tempAttack) {
+
+                    attackMinus.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING MINUS !");
+
+                }
+
             }
         });
+
+        /** Defence Plus */
         defencePlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
                     Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
 
                 } else {
+
                     Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() - 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "Attributes point after click: " + Controller.getInstance().getHero().getAttributePoints());
+
                     Controller.getInstance().getHero().setDefence(Controller.getInstance().getHero().getDefence() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "def+");
 
                     currentDefence.setText(String.valueOf(Controller.getInstance().getHero().getDefence()));
 
                     attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
                             + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
-
-                    Log.i("ATTRIBUTES_DISTRIBUTION", "def+");
-
-                    // If there is no more attributes point
-                    if (Controller.getInstance().getHero().getAttributePoints() == 0) {
-
-                        attackPlus.setVisibility(View.INVISIBLE);
-                        defencePlus.setVisibility(View.INVISIBLE);
-                        speedPlus.setVisibility(View.INVISIBLE);
-
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
-
-                    } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
-
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
-
-                        attackMinus.setVisibility(View.INVISIBLE);
-                        defenceMinus.setVisibility(View.INVISIBLE);
-                        speedMinus.setVisibility(View.INVISIBLE);
-
-                    } else if (Controller.getInstance().getHero().getAttributePoints() < tempAttributes) {
-
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
-
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
-
-                    } else {
-                        Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
-                    }
-
-                    if (Controller.getInstance().getHero().getDefence() <= tempDefence) {
-                        defenceMinus.setVisibility(View.INVISIBLE);
-                    }
                 }
+
+
+                // If there is no more attributes point, remove plus
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
+
+                    attackPlus.setVisibility(View.INVISIBLE);
+                    defencePlus.setVisibility(View.INVISIBLE);
+                    speedPlus.setVisibility(View.INVISIBLE);
+
+                } else if (Controller.getInstance().getHero().getAttributePoints() > 0) {
+
+                    attackPlus.setVisibility(View.VISIBLE);
+                    defencePlus.setVisibility(View.VISIBLE);
+                    speedPlus.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING PLUS!");
+
+                }
+
+                // If attack is at the same value as the start
+                if (Controller.getInstance().getHero().getDefence() <= tempDefence) {
+
+                    defenceMinus.setVisibility(View.INVISIBLE);
+
+                } else if (Controller.getInstance().getHero().getDefence() > tempDefence) {
+
+                    defenceMinus.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING MINUS !");
+
+                }
+
+
             }
         });
+
+        /** Defence Minus */
         defenceMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                if (Controller.getInstance().getHero().getAttributePoints() >= 5) {
 
                     Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
 
                 } else {
+
                     Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "Attributes point after click: " + Controller.getInstance().getHero().getAttributePoints());
+
                     Controller.getInstance().getHero().setDefence(Controller.getInstance().getHero().getDefence() - 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "def-");
 
                     currentDefence.setText(String.valueOf(Controller.getInstance().getHero().getDefence()));
 
                     attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
                             + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
 
-                    Log.i("ATTRIBUTES_DISTRIBUTION", "def-");
-
-                    // If there is no more attributes point
-                    if (Controller.getInstance().getHero().getAttributePoints() == 0) {
-
-                        attackPlus.setVisibility(View.INVISIBLE);
-                        defencePlus.setVisibility(View.INVISIBLE);
-                        speedPlus.setVisibility(View.INVISIBLE);
-
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
-
-                    } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
-
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
-
-                        attackMinus.setVisibility(View.INVISIBLE);
-                        defenceMinus.setVisibility(View.INVISIBLE);
-                        speedMinus.setVisibility(View.INVISIBLE);
-
-                    } else if (Controller.getInstance().getHero().getAttributePoints() < tempAttributes) {
-
-                        attackPlus.setVisibility(View.VISIBLE);
-                        defencePlus.setVisibility(View.VISIBLE);
-                        speedPlus.setVisibility(View.VISIBLE);
-
-                        attackMinus.setVisibility(View.VISIBLE);
-                        defenceMinus.setVisibility(View.VISIBLE);
-                        speedMinus.setVisibility(View.VISIBLE);
-
-                    } else {
-                        Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
-                    }
-
-                    if (Controller.getInstance().getHero().getDefence() <= tempDefence) {
-                        defenceMinus.setVisibility(View.INVISIBLE);
-                    }
                 }
+
+
+                // If there is no more attributes point, remove plus
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
+
+                    attackPlus.setVisibility(View.INVISIBLE);
+                    defencePlus.setVisibility(View.INVISIBLE);
+                    speedPlus.setVisibility(View.INVISIBLE);
+
+                } else if (Controller.getInstance().getHero().getAttributePoints() > 0) {
+
+                    attackPlus.setVisibility(View.VISIBLE);
+                    defencePlus.setVisibility(View.VISIBLE);
+                    speedPlus.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING PLUS!");
+
+                }
+
+                // If attack is at the same value as the start
+                if (Controller.getInstance().getHero().getDefence() <= tempDefence) {
+
+                    defenceMinus.setVisibility(View.INVISIBLE);
+
+                } else if (Controller.getInstance().getHero().getDefence() > tempDefence) {
+
+                    defenceMinus.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING MINUS !");
+
+                }
+
+
             }
         });
+
+        /** Speed Plus */
         speedPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
                     Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
 
                 } else {
+
                     Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() - 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "Attributes point after click: " + Controller.getInstance().getHero().getAttributePoints());
+
                     Controller.getInstance().getHero().setSpeed(Controller.getInstance().getHero().getSpeed() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "speed+");
 
                     currentSpeed.setText(String.valueOf(Controller.getInstance().getHero().getSpeed()));
 
                     attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
                             + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
 
-                    Log.i("ATTRIBUTES_DISTRIBUTION", "speed+");
                 }
 
-                // If there is no more attributes point
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+
+                // If there is no more attributes point, remove plus
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
                     attackPlus.setVisibility(View.INVISIBLE);
                     defencePlus.setVisibility(View.INVISIBLE);
                     speedPlus.setVisibility(View.INVISIBLE);
 
-                    attackMinus.setVisibility(View.VISIBLE);
-                    defenceMinus.setVisibility(View.VISIBLE);
-                    speedMinus.setVisibility(View.VISIBLE);
-
-                } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
+                } else if (Controller.getInstance().getHero().getAttributePoints() > 0) {
 
                     attackPlus.setVisibility(View.VISIBLE);
                     defencePlus.setVisibility(View.VISIBLE);
                     speedPlus.setVisibility(View.VISIBLE);
 
-                    attackMinus.setVisibility(View.INVISIBLE);
-                    defenceMinus.setVisibility(View.INVISIBLE);
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING PLUS!");
+
+                }
+
+                // If attack is at the same value as the start
+                if (Controller.getInstance().getHero().getSpeed() <= tempSpeed) {
+
                     speedMinus.setVisibility(View.INVISIBLE);
 
-                } else if (Controller.getInstance().getHero().getAttributePoints() < tempAttributes) {
+                } else if (Controller.getInstance().getHero().getSpeed() > tempSpeed) {
 
-                    attackPlus.setVisibility(View.VISIBLE);
-                    defencePlus.setVisibility(View.VISIBLE);
-                    speedPlus.setVisibility(View.VISIBLE);
-
-                    attackMinus.setVisibility(View.VISIBLE);
-                    defenceMinus.setVisibility(View.VISIBLE);
                     speedMinus.setVisibility(View.VISIBLE);
 
                 } else {
-                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING MINUS !");
+
                 }
 
-                if (Controller.getInstance().getHero().getSpeed() <= tempSpeed) {
-                    speedMinus.setVisibility(View.INVISIBLE);
-                }
             }
         });
+
+        /** Speed Minus */
         speedMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                if (Controller.getInstance().getHero().getAttributePoints() >= 5) {
 
                     Log.i("ATTRIBUTES_DISTRIBUTION", "cant distribute points");
 
                 } else {
+
                     Controller.getInstance().getHero().setAttributePoints(Controller.getInstance().getHero().getAttributePoints() + 1);
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "Attributes point after click: " + Controller.getInstance().getHero().getAttributePoints());
+
                     Controller.getInstance().getHero().setSpeed(Controller.getInstance().getHero().getSpeed() - 1);
                     Log.i("ATTRIBUTES_DISTRIBUTION", "speed-");
 
@@ -466,46 +490,43 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
                     attributesLeft.setText("Your hero " + Controller.getInstance().getHero().getName() + " has "
                             + Controller.getInstance().getHero().getAttributePoints() + " attributes points left.");
+
                 }
 
-                // If there is no more attributes point
-                if (Controller.getInstance().getHero().getAttributePoints() == 0) {
+                // If there is no more attributes point, remove plus
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
 
                     attackPlus.setVisibility(View.INVISIBLE);
                     defencePlus.setVisibility(View.INVISIBLE);
                     speedPlus.setVisibility(View.INVISIBLE);
 
-                    attackMinus.setVisibility(View.VISIBLE);
-                    defenceMinus.setVisibility(View.VISIBLE);
-                    speedMinus.setVisibility(View.VISIBLE);
-
-                } else if (Controller.getInstance().getHero().getAttributePoints() == 5) {
+                } else if (Controller.getInstance().getHero().getAttributePoints() > 0) {
 
                     attackPlus.setVisibility(View.VISIBLE);
                     defencePlus.setVisibility(View.VISIBLE);
                     speedPlus.setVisibility(View.VISIBLE);
 
-                    attackMinus.setVisibility(View.INVISIBLE);
-                    defenceMinus.setVisibility(View.INVISIBLE);
+                } else {
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING PLUS!");
+
+                }
+
+                // If attack is at the same value as the start
+                if (Controller.getInstance().getHero().getSpeed() <= tempSpeed) {
+
                     speedMinus.setVisibility(View.INVISIBLE);
 
-                } else if (Controller.getInstance().getHero().getAttributePoints() < tempAttributes) {
+                } else if (Controller.getInstance().getHero().getSpeed() > tempSpeed) {
 
-                    attackPlus.setVisibility(View.VISIBLE);
-                    defencePlus.setVisibility(View.VISIBLE);
-                    speedPlus.setVisibility(View.VISIBLE);
-
-                    attackMinus.setVisibility(View.VISIBLE);
-                    defenceMinus.setVisibility(View.VISIBLE);
                     speedMinus.setVisibility(View.VISIBLE);
 
                 } else {
-                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR !");
+
+                    Log.i("ATTRIBUTES_DISTRIBUTION", "ERROR REMOVING MINUS !");
+
                 }
 
-                if (Controller.getInstance().getHero().getSpeed() <= tempSpeed) {
-                    speedMinus.setVisibility(View.INVISIBLE);
-                }
             }
         });
 
@@ -516,12 +537,24 @@ public class CharacterCreationActivity extends AppCompatActivity {
         checkMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+
+                Controller.getInstance().setHero((Controller.getInstance().getHero()));
+
+                if (Controller.getInstance().getHero().getAttributePoints() <= 0) {
+
+                    // Hero created
+                    dialog.dismiss();
+
+                } else {
+
+                    // Refuse to create hero until attributes are spent
+                    showToastAttributes();
+
+                }
             }
         });
 
         dialog.show();
-
 
     }
 
@@ -542,6 +575,14 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
         EditText heroName = (EditText) findViewById(R.id.hero_name);
         return heroName.getText().toString();
+    }
+
+    public void showToastAttributes(){
+        Toast.makeText(this, R.string.EnterAllAttributes, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showToastName(){
+        Toast.makeText(this, R.string.EnterNameHero, Toast.LENGTH_SHORT).show();
     }
 
 }

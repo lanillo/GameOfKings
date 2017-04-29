@@ -54,6 +54,9 @@
     <string name="CurrentAttack" translatable="false">CurrentAttack</string>
     <string name="CurrentDefence" translatable="false">CurrentDefence</string>
     <string name="CurrentSpeed" translatable="false">CurrentSpeed</string>
+    <string name="ConfirmHeroCreation">Create hero ?</string>
+    <string name="EnterAllAttributes">Please distribute all attributes to your hero</string>
+    <string name="EnterNameHero">Please enter a name for your hero</string>
 
 
 </resources>

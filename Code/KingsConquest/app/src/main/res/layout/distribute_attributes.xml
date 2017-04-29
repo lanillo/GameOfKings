@@ -2,8 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="350dp"
+    android:layout_height="425dp"
     android:layout_marginBottom="16dp"
     android:layout_marginRight="16dp"
     tools:ignore="RtlHardcoded">
@@ -41,23 +41,22 @@
 
     <ImageView
         android:id="@+id/check_mark"
-        android:layout_width="49dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="283dp"
-        android:layout_marginRight="32dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="283dp"
-        android:layout_marginTop="366dp"
+        android:layout_marginTop="375dp"
         android:contentDescription="@string/CheckMark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/checkmark"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="80dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintLeft_toRightOf="@+id/speed_minus"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintHorizontal_bias="1.0" />
 
     <TextView
         android:id="@+id/attack"
@@ -103,6 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="200dp"
         android:contentDescription="@string/CurrentAttack"
         android:text="@string/CurrentAttack"
@@ -142,18 +142,19 @@
         android:layout_width="42dp"
         android:layout_height="29dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/defenceMinus"
         app:layout_constraintLeft_toRightOf="@+id/defence_plus"
         app:layout_constraintTop_toBottomOf="@+id/attack_minus"
-        app:srcCompat="@drawable/minus"
-        android:layout_marginStart="16dp" />
+        app:srcCompat="@drawable/minus" />
 
     <TextView
         android:id="@+id/current_defence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/CurrentDefence"
         android:text="@string/CurrentDefence"
@@ -181,12 +182,12 @@
         android:layout_width="42dp"
         android:layout_height="29dp"
         android:layout_marginLeft="96dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/speedPlus"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/defence_plus"
-        app:srcCompat="@drawable/plus"
-        android:layout_marginStart="96dp" />
+        app:srcCompat="@drawable/plus" />
 
     <ImageView
         android:id="@+id/speed_minus"
@@ -205,11 +206,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/CurrentSpeed"
         android:text="@string/CurrentSpeed"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintLeft_toRightOf="@+id/speed_minus"
         app:layout_constraintTop_toBottomOf="@+id/current_defence" />
+
+    <TextView
+        android:id="@+id/confirm_hero_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="375dp"
+        android:contentDescription="@string/ConfirmHeroCreation"
+        android:text="@string/ConfirmHeroCreation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/check_mark"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -26,6 +26,7 @@ public class Hero {
     private int level;
 
     private boolean isPlayerHero;
+    private boolean isHeroCreated;
 
     /** Called after type is set stats when type is chosen
      *
@@ -48,7 +49,7 @@ public class Hero {
 
     }
 
-    public Hero(boolean isPlayerHero) {
+    public Hero(boolean isPlayerHero, boolean isHeroCreated) {
 
         this.name = Constants.NAME;
         this.type = Constants.NO_TYPE;
@@ -60,6 +61,7 @@ public class Hero {
         this.level = Constants.INITIAL_LEVEL;
         this.attributePoints = Constants.ATTRIBUTES_LEVEL;
         this.isPlayerHero = isPlayerHero;
+        this.isHeroCreated = isHeroCreated;
 
     }
 
@@ -181,6 +183,11 @@ public class Hero {
         this.isPlayerHero = isPlayerHero;
     }
 
+    public void setHeroCreated(boolean isHeroCreated) {
+
+        this.isHeroCreated = isHeroCreated;
+    }
+
     /** List of accessers
      *
      * Function: Read each attribute of the hero */
@@ -232,6 +239,11 @@ public class Hero {
     public boolean getIsPlayerHero() {
 
         return this.isPlayerHero;
+    }
+
+    public boolean getIsHeroCreated() {
+
+        return this.isHeroCreated;
     }
 
 

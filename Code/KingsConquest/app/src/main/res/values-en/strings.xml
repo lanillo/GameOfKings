@@ -19,4 +19,7 @@
     <string name="Defence">Defense</string>
     <string name="Speed">Speed</string>
     <string name="DistributeAttributesTitle">Attributes Page</string>
+    <string name="ConfirmHeroCreation">Create hero ?</string>
+    <string name="EnterAllAttributes">Please distribute all attributes to your hero</string>
+    <string name="EnterNameHero">Please enter a name for your hero</string>
 </resources>

@@ -18,4 +18,7 @@
     <string name="Defence">Defensa</string>
     <string name="Speed">Velocidad</string>
     <string name="DistributeAttributesTitle">Pagina de attributos</string>
+    <string name="ConfirmHeroCreation">Crear el héroe ?</string>
+    <string name="EnterAllAttributes">Por favor, distribuir todos lols atributos</string>
+    <string name="EnterNameHero">Por favor dar un nombre al héroe</string>
 </resources>
