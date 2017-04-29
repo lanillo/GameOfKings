@@ -613,7 +613,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
 
                     } else {
 
-                        // Refuse to create hero until attributes are spent
+                        // Refuse to create hero until attributes are spent 
                         showToastAttributes();
 
                     }
