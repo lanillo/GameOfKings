@@ -12,7 +12,9 @@
         android:theme="@style/AppTheme">
 
         !-- MainActivity - Contains the menu --!
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,19 +24,22 @@
         !-- HelpMenuActivity - Contains the help --!
         <activity
             android:name=".HelpMenu"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape" />
 
-        !-- CreditsActivity - Contains the help --!
+        !-- CreditsActivity - Contains the credits --!
         <activity
             android:name=".CreditsMenu"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape" />
 
-        !-- MainGameActivity - Contains the help --!
+        !-- MainGameActivity - Contains the actual game --!
 
-        !-- CharacterCreationActivity - Contains the help --!
+        !-- CharacterCreationActivity - Contains the character creation --!
         <activity
             android:name=".CharacterCreationActivity"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape">
 
         </activity>
     </application>
