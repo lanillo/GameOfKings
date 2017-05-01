@@ -9,7 +9,7 @@
     <string name="Quit">Quit</string>
 
     !-- Help Menu Objects --!
-    <string name="Help_Help">Help</string>
+    <string name="Help_Help" translatable="false">Help</string>
     <string name="HelpText">King\'s Conquest is a game about conquering other villages to make your
                             kingdom the most powerful of the land.</string>
 
@@ -58,6 +58,8 @@
     <string name="EnterAllAttributes">Please distribute all attributes to your hero</string>
     <string name="EnterNameHero">Please enter a name for your hero</string>
     <string name="HeroCreated">HeroCreated</string>
+
+    <string name="title_activity_game_start" translatable="false">GameStart</string>
 
 
 </resources>
