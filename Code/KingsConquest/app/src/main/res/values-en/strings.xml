@@ -23,4 +23,7 @@
     <string name="EnterAllAttributes">Please distribute all attributes to your hero</string>
     <string name="EnterNameHero">Please enter a name for your hero</string>
     <string name="HeroCreated">Hero Created</string>
+    <string name="HistoryBeginning">"I still remember my days back in Orilon, my home town. Life was simple for everyone, peasants and royalty alike. I was the son of Gaufridus, king of the Prican empire, and I was the direct heir of all the power. I couldn’t care less about being the heir, the kingdom was doing well with my father and nothing would have changed if I was king.  "</string>
+    <string name="HistoryBeginning1">And then, there was my younger brother Jehan. The only reason as to why I am on this ship. Jehan was all about power since his young age. He used to walk through the streets of Orilon and forced the peasants to do whatever he wanted. Worse part is I tried to stop him. All I got was being expelled from my beautiful city with treason charges. And it was all a plan of Jehan.</string>
+    <string name="HistoryBeginning2">I should wake up...</string>
 </resources>

@@ -22,4 +22,7 @@
     <string name="EnterAllAttributes">Por favor, distribuir todos lols atributos</string>
     <string name="EnterNameHero">Por favor dar un nombre al héroe</string>
     <string name="HeroCreated">Héroe creado</string>
+    <string name="HistoryBeginning">Todavía recuerdo mis días en Orilon, mi ciudad natal. La vida era sencilla para todos, campesinos y realeza por igual. Yo era el hijo de Gaufridus, rey del imperio priciano, y yo era el heredero directo de todo el poder. No podía importarme menos ser el heredero, el reino estaba bien con mi padre y nada iba a cambiar si yo iba a ser rey.</string>
+    <string name="HistoryBeginning1">Y luego, estaba mi hermano menor Jehan. La única razón por la que estoy en este barco. Jehan era todo sobre el poder desde su temprana edad. Caminaba por las calles de Orilón y obligaba a los campesinos a hacer lo que quisiera. Lo peor es que traté de detenerlo. Todo lo que conseguí fue ser expulsado de mi hermosa ciudad con cargos de traición contra mi propio padre. Y todo era un plan de Jehan.</string>
+    <string name="HistoryBeginning2">Me tengo que despertar...</string>
 </resources>

@@ -60,6 +60,11 @@
     <string name="HeroCreated">HeroCreated</string>
 
     <string name="title_activity_game_start" translatable="false">GameStart</string>
+    <string name="History" translatable="false">History</string>
+    <string name="HistoryBeginning">I still remember my days back in Orilon, my home town. Life was simple for everyone, peasants and royalty alike. I was the son of Gaufridus, king of the Prican empire, and I was the direct heir of all the power. I couldn’t care less about being the heir, the kingdom was doing well with my father and nothing would have changed if I was king.</string>
+    <string name="HomeTown" translatable="false">Orilon</string>
+    <string name="HistoryBeginning1">Brother</string>
+    <string name="HistoryBeginning2">I should wake up...</string>
 
 
 </resources>

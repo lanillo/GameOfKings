@@ -22,4 +22,7 @@
     <string name="EnterAllAttributes">SVP distribuez tous les attributs</string>
     <string name="EnterNameHero">SVP nommez votre héros</string>
     <string name="HeroCreated">Héros créé</string>
+    <string name="HistoryBeginning">Je me souviens encore de mes jours à Orilon, ma ville natale. La vie était simple pour tout le monde, les paysans et la royauté. J\'étais le fils de Gaufridus, roi de l\'empire Prican et j\'étais l\'héritier direct de tout le pouvoir. Je ne me souciais guère d\'être l\'héritier, le royaume marchait bien avec mon père et rien changerait si je devenais roi.</string>
+    <string name="HistoryBeginning1">Et puis, il y avait mon jeune frère Jehan. La seule raison pour laquelle je suis sur ce navire. Jehan était tout pour le pouvoir depuis son jeune âge. Il traversait les rues d\'Orilon et obligeait les paysans à faire ce qu\'il voulait. La pire partie est que j\'ai essayé de l\'arrêter. Tout ce que j\'ai obtenu a été expulsé de ma belle ville avec des accusations de trahison envers mon père. Et c\'était tout un plan de Jehan.</string>
+    <string name="HistoryBeginning2">Je devrais me réveiller...</string>
 </resources>
