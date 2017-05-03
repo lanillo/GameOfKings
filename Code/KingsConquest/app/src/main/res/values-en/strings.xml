@@ -26,4 +26,6 @@
     <string name="HistoryBeginning">"I still remember my days back in Orilon, my home town. Life was simple for everyone, peasants and royalty alike. I was the son of Gaufridus, king of the Prican empire, and I was the direct heir of all the power. I couldn’t care less about being the heir, the kingdom was doing well with my father and nothing would have changed if I was king.  "</string>
     <string name="HistoryBeginning1">And then, there was my younger brother Jehan. The only reason as to why I am on this ship. Jehan was all about power since his young age. He used to walk through the streets of Orilon and forced the peasants to do whatever he wanted. Worse part is I tried to stop him. All I got was being expelled from my beautiful city with treason charges. And it was all a plan of Jehan.</string>
     <string name="HistoryBeginning2">I should wake up...</string>
+    <string name="HistoryBeginning3">Even though I was put in exile from my home city, I still have some friends who believed me when I said I didn’t kill the king. So, they followed me, giving me their word that they would fight and die for me. They are my new family. We are now heading to this city, I can’t quite remember the name… Its something like…</string>
+    <string name="ChooseStartingCity">Choose Stating City</string>
 </resources>

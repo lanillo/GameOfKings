@@ -25,4 +25,6 @@
     <string name="HistoryBeginning">Todavía recuerdo mis días en Orilon, mi ciudad natal. La vida era sencilla para todos, campesinos y realeza por igual. Yo era el hijo de Gaufridus, rey del imperio priciano, y yo era el heredero directo de todo el poder. No podía importarme menos ser el heredero, el reino estaba bien con mi padre y nada iba a cambiar si yo iba a ser rey.</string>
     <string name="HistoryBeginning1">Y luego, estaba mi hermano menor Jehan. La única razón por la que estoy en este barco. Jehan era todo sobre el poder desde su temprana edad. Caminaba por las calles de Orilón y obligaba a los campesinos a hacer lo que quisiera. Lo peor es que traté de detenerlo. Todo lo que conseguí fue ser expulsado de mi hermosa ciudad con cargos de traición contra mi propio padre. Y todo era un plan de Jehan.</string>
     <string name="HistoryBeginning2">Me tengo que despertar...</string>
+    <string name="HistoryBeginning3">A pesar de que fui puesto en el exilio de mi ciudad natal, todavía tengo algunos amigos que me creyeron cuando dije que no maté el rey. Así que me siguieron, dándome su palabra de que lucharían y morirían por mí. Ellos son mi nueva familia. Ahora nos dirigimos a esta ciudad, no puedo recordar el nombre... Es algo así como...</string>
+    <string name="ChooseStartingCity">Elegir la cuidad donde empezar</string>
 </resources>

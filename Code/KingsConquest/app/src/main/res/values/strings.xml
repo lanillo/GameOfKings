@@ -65,6 +65,12 @@
     <string name="HomeTown" translatable="false">Orilon</string>
     <string name="HistoryBeginning1">Brother</string>
     <string name="HistoryBeginning2">I should wake up...</string>
+    <string name="HistoryBeginning3">Even though I was put in exile from my home city, I still have some friends who believed me when I said I didn’t kill the king. So, they followed me, giving me their word that they would fight and die for me. They are my new family. We are now heading to this city, I can’t quite remember the name… Its something like…</string>
+    <string name="ChooseStartingCity">Choose Startig City</string>
+    <string name="City1" translatable="false">Frostford</string>
+    <string name="City2" translatable="false">Bredon</string>
+    <string name="City3" translatable="false">Worcester</string>
+    <string name="City4" translatable="false">Old Ashton</string>
 
 
 </resources>

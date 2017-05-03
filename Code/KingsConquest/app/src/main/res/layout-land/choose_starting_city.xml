@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/city">
+
+    <ImageView
+        android:id="@+id/check_mark"
+        android:layout_width="47dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/CheckMark"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/city_group"
+        app:srcCompat="@drawable/checkmark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:id="@+id/choose_your_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/ChooseStartingCity"
+        android:text="@string/ChooseStartingCity"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/black"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/city_group"
+        android:layout_width="wrap_content"
+        android:layout_height="128dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="75dp">
+
+        <RadioButton
+            android:id="@+id/city1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:contentDescription="@string/City1"
+            android:text="@string/City1"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/city2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/City2"
+            android:text="@string/City2"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/city3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/City3"
+            android:text="@string/City3"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/city4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/City4"
+            android:text="@string/City4"
+            android:textColor="@color/black" />
+    </RadioGroup>
+</android.support.constraint.ConstraintLayout>
