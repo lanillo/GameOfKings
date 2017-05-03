@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -29,8 +30,9 @@ public class GameStart extends AppCompatActivity {
 
     int status = 0;
     final Context context = this;
+    final int selectedCity = 0;
 
-    private RadioButton radioCitiesButton;
+    private int finalSelectedCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +100,10 @@ public class GameStart extends AppCompatActivity {
             final TextView title = (TextView) dialog.findViewById(R.id.choose_your_city);
             title.setText(R.string.ChooseStartingCity);
 
-
+            final RadioButton city1 = (RadioButton) dialog.findViewById(R.id.city1);
+            final RadioButton city2 = (RadioButton) dialog.findViewById(R.id.city2);
+            final RadioButton city3 = (RadioButton) dialog.findViewById(R.id.city3);
+            final RadioButton city4 = (RadioButton) dialog.findViewById(R.id.city4);
 
             final RadioGroup radioCitiesGroup = (RadioGroup) dialog.findViewById(R.id.city_group);
             final ImageView checkMark = (ImageView) dialog.findViewById(R.id.check_mark);
@@ -111,18 +116,75 @@ public class GameStart extends AppCompatActivity {
                     // get selected radio button in group
                     int selectedCity = radioCitiesGroup.getCheckedRadioButtonId();
 
-                    // find the radio button returned by ID
-                    radioCitiesButton = (RadioButton) findViewById(selectedCity);
+                    if (selectedCity == city1.getId()) {
+                        selectedCity = 1;
+                        Log.i("SELECTED_CITY", ""+selectedCity);
+                    } else if (selectedCity == city2.getId()) {
+                        selectedCity = 2;
+                        Log.i("SELECTED_CITY", ""+selectedCity);
+                    } else if (selectedCity == city3.getId()) {
+                        selectedCity = 3;
+                        Log.i("SELECTED_CITY", ""+selectedCity);
+                    } else if (selectedCity == city4.getId()) {
+                        selectedCity = 4;
+                        Log.i("SELECTED_CITY", ""+selectedCity);
+                    }
 
-                    Toast.makeText(GameStart.this,
-                            radioCitiesButton.getText(), Toast.LENGTH_SHORT).show();
+                    setFinalSelectedCity(selectedCity);
 
+                    dialog.dismiss();
+                    status = 4;
+                    Log.i("STATUS", ""+status);
+                    Log.i("SELECTED_CITY", ""+selectedCity);
                 }
             });
 
             dialog.show();
 
+        } else if (status == 4) {
+
+            Log.i("STATUS", "IM AM IN STATUS == 4");
+            Log.i("SELECTED_CITY", ""+getFinalSelectedCity());
+
+            if (getFinalSelectedCity() == 1) {
+
+                // Frostford
+                ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
+                mConstraintLayout.setBackgroundResource(R.drawable.frostford);
+
+            } else if (getFinalSelectedCity() == 2) {
+
+                // Bredon
+                ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
+                mConstraintLayout.setBackgroundResource(R.drawable.bredon);
+
+            } else if (getFinalSelectedCity() == 3) {
+
+                // Worcester
+                ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
+                mConstraintLayout.setBackgroundResource(R.drawable.worcester);
+
+            } else if (getFinalSelectedCity() == 4) {
+
+                // Old Ashton
+                ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
+                mConstraintLayout.setBackgroundResource(R.drawable.city);
+
+            }
+
         }
+
+    }
+
+    public int getFinalSelectedCity() {
+
+        return finalSelectedCity;
+
+    }
+
+    public void setFinalSelectedCity(int selectedCity) {
+
+        finalSelectedCity = selectedCity;
 
     }
 
