@@ -71,6 +71,11 @@
     <string name="City2" translatable="false">Bredon</string>
     <string name="City3" translatable="false">Worcester</string>
     <string name="City4" translatable="false">Old Ashton</string>
+    <string name="CityRemember">"Oh yes I remember now, it was the city of "</string>
+    <string name="DescCity1">It is situated in the north of the continent. They say that it never stops snowing, but you know, they are rumors. Well, in any case, I really do hope they are rumors, because I can already feel my toes freezing. We finally get to the city. I can feel it right as I left the caravan; the wind is so cold, there is snow everywhere. How do people live here? Maybe those conditions are what makes north warriors the best of the country.</string>
+    <string name="DescCity2">It is situated to the east of the continent. If only father could see it, he would’ve loved hunting in these forests. The roads are full of trees and lakes, it’s beautiful. I recall my teacher saying that the archers from Bredon could hide in the trees and rain arrows on the enemy. That would explain why father told me that the city of Bredon could not be conquered. Right as I step outside of the caravan, I can feel the warm wind on my face. This really seems like a nice stop.</string>
+    <string name="DescCity3">It is situated in the south of the continent. From my souvenirs, this city is in the heart of the province of horse. Knights whose tales are described in children books often come from this place. Maybe I’ll meet my childhood hero Arkadatan. Who knows. As I step outside the caravan, I feel this hot wind on my face. How can anyone live like this?</string>
+    <string name="DescCity4">It is situated to the west of the continent. That’s the city where teachers and sages come from. I saw it as we were on the roads, it was breath taking. Never have I seen such beautiful houses. It is said that its exactly the beauty of the city that inspires sages and explains why this city is so advanced in technology. As I step outside, I see soldiers patrolling the streets, watching the citizens moves. Wonder if any of them mind their presence? Who knows.</string>
 
 
 </resources>

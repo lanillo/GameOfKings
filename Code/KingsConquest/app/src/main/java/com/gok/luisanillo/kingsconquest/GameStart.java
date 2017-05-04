@@ -3,6 +3,7 @@ package com.gok.luisanillo.kingsconquest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
@@ -146,31 +147,52 @@ public class GameStart extends AppCompatActivity {
             Log.i("STATUS", "IM AM IN STATUS == 4");
             Log.i("SELECTED_CITY", ""+getFinalSelectedCity());
 
+            view.setBackgroundColor(Color.TRANSPARENT);
+
             if (getFinalSelectedCity() == 1) {
 
                 // Frostford
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.frostford);
+                getHistoryAfterCityChoose(getFinalSelectedCity());
+
 
             } else if (getFinalSelectedCity() == 2) {
 
                 // Bredon
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.bredon);
+                getHistoryAfterCityChoose(getFinalSelectedCity());
+
 
             } else if (getFinalSelectedCity() == 3) {
 
                 // Worcester
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.worcester);
+                getHistoryAfterCityChoose(getFinalSelectedCity());
+
 
             } else if (getFinalSelectedCity() == 4) {
 
                 // Old Ashton
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.city);
+                getHistoryAfterCityChoose(getFinalSelectedCity());
 
             }
+
+            TextView historyText = (TextView) findViewById(R.id.history_text);
+            historyText.setText(getHistoryAfterCityChoose(getFinalSelectedCity()));
+            historyText.setTextColor(ResourcesCompat.getColor(getResources(), R.color.white, null));
+            historyText.setMovementMethod(new ScrollingMovementMethod());
+
+            if (getFinalSelectedCity() == 4 || getFinalSelectedCity() == 2) {
+
+                historyText.setTextColor(ResourcesCompat.getColor(getResources(), R.color.black, null));
+
+            }
+
 
         }
 
@@ -185,6 +207,35 @@ public class GameStart extends AppCompatActivity {
     public void setFinalSelectedCity(int selectedCity) {
 
         finalSelectedCity = selectedCity;
+
+    }
+
+    public String getHistoryAfterCityChoose(int selectedCity) {
+
+        if (selectedCity == 1) {
+            String selectedCityName = getResources().getString(R.string.City1);
+            return getResources().getString(R.string.CityRemember) + selectedCityName + ". "
+                    + getResources().getString(R.string.DescCity1);
+
+        } else if (selectedCity == 2) {
+            String selectedCityName = getResources().getString(R.string.City2);
+            return getResources().getString(R.string.CityRemember) + selectedCityName + ". "
+                    + getResources().getString(R.string.DescCity2);
+
+        } else if (selectedCity == 3) {
+            String selectedCityName = getResources().getString(R.string.City3);
+            return getResources().getString(R.string.CityRemember) + selectedCityName + ". "
+                    + getResources().getString(R.string.DescCity3);
+
+        } else if (selectedCity == 4) {
+            String selectedCityName = getResources().getString(R.string.City4);
+            return getResources().getString(R.string.CityRemember) + selectedCityName + ". "
+                    + getResources().getString(R.string.DescCity4);
+
+        } else {
+
+            return "rip";
+        }
 
     }
 
