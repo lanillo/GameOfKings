@@ -154,7 +154,6 @@ public class GameStart extends AppCompatActivity {
                 // Frostford
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.frostford);
-                getHistoryAfterCityChoose(getFinalSelectedCity());
 
 
             } else if (getFinalSelectedCity() == 2) {
@@ -162,7 +161,6 @@ public class GameStart extends AppCompatActivity {
                 // Bredon
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.bredon);
-                getHistoryAfterCityChoose(getFinalSelectedCity());
 
 
             } else if (getFinalSelectedCity() == 3) {
@@ -170,7 +168,6 @@ public class GameStart extends AppCompatActivity {
                 // Worcester
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.worcester);
-                getHistoryAfterCityChoose(getFinalSelectedCity());
 
 
             } else if (getFinalSelectedCity() == 4) {
@@ -178,7 +175,6 @@ public class GameStart extends AppCompatActivity {
                 // Old Ashton
                 ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
                 mConstraintLayout.setBackgroundResource(R.drawable.city);
-                getHistoryAfterCityChoose(getFinalSelectedCity());
 
             }
 
@@ -193,9 +189,31 @@ public class GameStart extends AppCompatActivity {
 
             }
 
+            status = 5;
+
+        } else if (status == 5) {
+
+            ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
+            mConstraintLayout.setBackgroundResource(R.drawable.stranger);
+
+            TextView historyText = (TextView) findViewById(R.id.history_text);
+            historyText.setText(getVillageToSave(getFinalSelectedCity()));
+            historyText.setTextColor(ResourcesCompat.getColor(getResources(), R.color.white, null));
+            historyText.setMovementMethod(new ScrollingMovementMethod());
+
+            status = 6;
+
+        } else if (status == 6) {
+
+            ConstraintLayout mConstraintLayout = (ConstraintLayout) findViewById(R.id.background);
+            mConstraintLayout.setBackgroundResource(R.drawable.caravan);
+
+            TextView historyText = (TextView) findViewById(R.id.history_text);
+            historyText.setText(R.string.HistoryStranger2);
+            historyText.setTextColor(ResourcesCompat.getColor(getResources(), R.color.white, null));
+            historyText.setMovementMethod(new ScrollingMovementMethod());
 
         }
-
     }
 
     public int getFinalSelectedCity() {
@@ -231,6 +249,35 @@ public class GameStart extends AppCompatActivity {
             String selectedCityName = getResources().getString(R.string.City4);
             return getResources().getString(R.string.CityRemember) + selectedCityName + ". "
                     + getResources().getString(R.string.DescCity4);
+
+        } else {
+
+            return "rip";
+        }
+
+    }
+
+    public String getVillageToSave(int selectedCity) {
+
+        if (selectedCity == 1) {
+            String selectedVillageToSaveName = getResources().getString(R.string.Village1);
+            return getResources().getString(R.string.historyStranger) + selectedVillageToSaveName + ". "
+                    + getResources().getString(R.string.HistoryStranger1);
+
+        } else if (selectedCity == 2) {
+            String selectedVillageToSaveName = getResources().getString(R.string.Village1);
+            return getResources().getString(R.string.historyStranger) + selectedVillageToSaveName + ". "
+                    + getResources().getString(R.string.HistoryStranger1);
+
+        } else if (selectedCity == 3) {
+            String selectedVillageToSaveName = getResources().getString(R.string.Village1);
+            return getResources().getString(R.string.historyStranger) + selectedVillageToSaveName + ". "
+                    + getResources().getString(R.string.HistoryStranger1);
+
+        } else if (selectedCity == 4) {
+            String selectedVillageToSaveName = getResources().getString(R.string.Village1);
+            return getResources().getString(R.string.historyStranger) + selectedVillageToSaveName + ". "
+                    + getResources().getString(R.string.HistoryStranger1);
 
         } else {
 
