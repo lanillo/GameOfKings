@@ -10,38 +10,41 @@
         android:roundIcon="@mipmap/ic_launcher_circle"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-
         !-- MainActivity - Contains the menu --!
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         !-- HelpMenuActivity - Contains the help --!
         <activity
             android:name=".HelpMenu"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape" />
-
+            android:screenOrientation="sensorLandscape" />
         !-- CreditsActivity - Contains the credits --!
         <activity
             android:name=".CreditsMenu"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape" />
-
+            android:screenOrientation="sensorLandscape" />
         !-- MainGameActivity - Contains the actual game --!
 
         !-- CharacterCreationActivity - Contains the character creation --!
         <activity
             android:name=".CharacterCreationActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="sensorLandscape"></activity>
 
-        </activity>
+        !-- GameStartActivity - Contains the character creation --!
+        <activity
+            android:name=".GameStart"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_game_start"
+            android:theme="@style/FullscreenTheme"
+            android:screenOrientation="sensorLandscape"></activity>
     </application>
 
 </manifest>

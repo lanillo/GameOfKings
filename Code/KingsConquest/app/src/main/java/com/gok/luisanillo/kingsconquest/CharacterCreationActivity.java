@@ -109,9 +109,10 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 isHeroAttributesDistributed = true;
 
             } else {
-
                 // Toast that shows if attributes are not disributed yet
-                showToastHeroCreated();
+                showToastHeroCreated(false);
+                finish();
+                startActivity(new Intent(CharacterCreationActivity.this ,GameStart.class));
 
             }
         }
@@ -608,7 +609,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                         finish();
 
                         // Start the game !
-                        startActivity(new Intent(CharacterCreationActivity.this ,MainActivity.class));
+                        startActivity(new Intent(CharacterCreationActivity.this ,GameStart.class));
 
 
                     } else {
@@ -654,8 +655,15 @@ public class CharacterCreationActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.EnterNameHero, Toast.LENGTH_SHORT).show();
     }
 
-    public void showToastHeroCreated(){
-        Toast.makeText(this, R.string.HeroCreated, Toast.LENGTH_SHORT).show();
+    public void showToastHeroCreated (boolean isHeroAttributesDistributed){
+        if (!isHeroAttributesDistributed) {
+            Toast.makeText(this, "Hero created, but abilities not distributed", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, R.string.HeroCreated, Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 }
